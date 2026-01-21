@@ -1,28 +1,36 @@
 // app/components/partners/PartnersSection.tsx
 "use client";
 
-import Container from "../core/Container";
-import Section from "../core/Section";
-import Heading from "../core/Heading";
-import Text from "../core/Text";
-import PartnersCarousel from "./PartnersCarousel";
+export type Partner = {
+  id: string;
+  name: string;
+  logo: string;
+};
 
-export default function PartnersSection() {
-  return (
-    <Section id="partners" className="bg-noise">
-      <Container>
-        <div className="mb-12 max-w-2xl">
-          <Heading as="h2" className="mb-4">
-            Hamkorlar
-          </Heading>
-          <Text muted>
-            Hamkorlarimiz uyushmaning ochiqligi va ishonchliligini ko‘rsatadi.
-            Logolar karusel ko‘rinishida beriladi — ixcham, zamonaviy va qulay.
-          </Text>
-        </div>
-
-        <PartnersCarousel />
-      </Container>
-    </Section>
-  );
-}
+export const partners: Partner[] = [
+  {
+    id: "partner-next",
+    name: "Next.js",
+    logo: "/next.svg",
+  },
+  {
+    id: "partner-vercel",
+    name: "Vercel",
+    logo: "/vercel.svg",
+  },
+  {
+    id: "partner-file",
+    name: "File",
+    logo: "/file.svg",
+  },
+  {
+    id: "partner-globe",
+    name: "Globe",
+    logo: "/globe.svg",
+  },
+  {
+    id: "partner-window",
+    name: "Window",
+    logo: "/window.svg",
+  },
+];

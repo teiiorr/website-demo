@@ -32,7 +32,8 @@ export default function Button({
     "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm sm:text-base font-medium transition-colors";
 
   // If href exists → render <a>, otherwise <button>
-  const Component: any = href ? "a" : "button";
+ const Component: React.ElementType = href ? "a" : "button";
+  const componentProps = href ? { href } : { type: "button" };
 
   return (
     <motion.div
