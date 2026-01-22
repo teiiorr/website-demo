@@ -2,7 +2,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Container from "../core/Container";
 import Button from "../core/Button";
 
@@ -16,10 +15,7 @@ type NavbarProps = {
   items: NavItem[];
 };
 
-export default function Navbar({
-  brand = "Bolalar Ijodkorlari",
-  items,
-}: NavbarProps) {
+export default function Navbar({ brand = "Bolalar Ijodkorlari", items }: NavbarProps) {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       {/* Glass bar */}
@@ -30,19 +26,10 @@ export default function Navbar({
             href="#top"
             className="group inline-flex items-center gap-2 rounded-full px-2 py-1"
           >
-            {/* Logo */}
-            <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/15">
-              <Image
-                src="/assets/images/logo.png"
-                alt="Bolalar Ijodkorlari logo"
-                width={22}
-                height={22}
-                className="object-contain"
-              />
+            <span className="relative grid h-9 w-9 place-items-center rounded-full bg-white/10 ring-1 ring-white/15">
+              <span className="h-2.5 w-2.5 rounded-full bg-white/80" />
               <span className="absolute -inset-6 opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100 bg-white/10" />
             </span>
-
-            {/* Brand text */}
             <span className="text-sm sm:text-base font-semibold tracking-tight text-white">
               {brand}
             </span>
@@ -69,20 +56,20 @@ export default function Navbar({
             >
               Bog‘lanish
             </a>
-
             <Button href="#projects" variant="secondary" className="px-5 py-2.5">
               Loyihalar
             </Button>
 
-            {/* Mobile menu button */}
+            {/* Mobile menu hint (placeholder)
+               Next class’da MobileMenu qo‘shamiz */}
             <button
               className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/15 hover:bg-white/20 transition-colors"
               aria-label="Menyu"
             >
-              <span className="relative h-4 w-5">
-                <span className="absolute left-0 top-0 h-0.5 w-5 rounded bg-white/80" />
-                <span className="absolute left-0 top-1.5 h-0.5 w-5 rounded bg-white/60" />
-                <span className="absolute left-0 top-3 h-0.5 w-5 rounded bg-white/80" />
+              <span className="h-4 w-5 relative">
+                <span className="absolute left-0 top-0 h-0.5 w-5 bg-white/80 rounded" />
+                <span className="absolute left-0 top-1.5 h-0.5 w-5 bg-white/60 rounded" />
+                <span className="absolute left-0 top-3 h-0.5 w-5 bg-white/80 rounded" />
               </span>
             </button>
           </div>

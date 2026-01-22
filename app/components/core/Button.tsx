@@ -14,18 +14,14 @@ type ButtonProps = {
 
 
 const variantMap: Record<ButtonVariant, string> = {
-  primary:
-    "bg-gradient-to-r from-[#ff7a59] via-[#ff4ecd] to-[#22d3ee] text-black hover:opacity-95",
-
+      primary: "bg-white text-black hover:bg-white/90",
   secondary:
     "bg-white/10 text-white backdrop-blur-md hover:bg-white/20",
   ghost: "bg-transparent text-white hover:bg-white/10",
 };
 
-const baseClasses =
-  "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm sm:text-base font-medium transition-colors shadow-soft";
 
-  
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
 export default function Button({
   children,
   className = "",

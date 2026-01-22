@@ -15,12 +15,11 @@ body {
 
 
 body {
-  background: radial-gradient(1200px 600px at 20% 10%, rgba(255, 127, 80, 0.18), transparent 60%),
-              radial-gradient(1000px 600px at 80% 30%, rgba(34, 211, 238, 0.16), transparent 55%),
-              radial-gradient(1100px 700px at 50% 90%, rgba(253, 224, 71, 0.18), transparent 60%),
-              #fbfbff;
+  background: #000;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
 /* Better media defaults */
 img,
 video {
