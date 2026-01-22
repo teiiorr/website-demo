@@ -13,12 +13,10 @@ type ButtonProps = {
 };
 
 const variantMap: Record<ButtonVariant, string> = {
-  primary:
-    "bg-white text-black hover:bg-white/90",
+  primary: "bg-white text-black hover:bg-white/90",
   secondary:
     "bg-white/10 text-white backdrop-blur-md hover:bg-white/20",
-  ghost:
-    "bg-transparent text-white hover:bg-white/10",
+  ghost: "bg-transparent text-white hover:bg-white/10",
 };
 
 export default function Button({
@@ -31,9 +29,11 @@ export default function Button({
   const baseClasses =
     "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm sm:text-base font-medium transition-colors";
 
-  // If href exists → render <a>, otherwise <button>
- const Component: React.ElementType = href ? "a" : "button";
-  const componentProps = href ? { href } : { type: "button" };
+  const classes = [
+    baseClasses,
+    variantMap[variant],
+    className,
+  ].join(" ");
 
   return (
     <motion.div
@@ -41,17 +41,15 @@ export default function Button({
       whileTap={{ scale: 0.96 }}
       className="inline-block"
     >
-      <Component
-        href={href}
-        onClick={onClick}
-        className={[
-          baseClasses,
-          variantMap[variant],
-          className,
-        ].join(" ")}
-      >
-        {children}
-      </Component>
+      {href ? (
+        <a href={href} className={classes}>
+          {children}
+        </a>
+      ) : (
+        <button onClick={onClick} className={classes}>
+          {children}
+        </button>
+      )}
     </motion.div>
   );
 }
