@@ -49,10 +49,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/55 md:flex-row md:items-center md:justify-between">
-          <span>© {new Date().getFullYear()} BIU. Barcha huquqlar himoyalangan.</span>
-          <span className="text-white/45">
-            MVP vizual demo — kontent va logo keyin qo‘shiladi.
-          </span>
+          <span>© teiior_dev | {new Date().getFullYear()}. Barcha huquqlar himoyalangan.</span>
+       
         </div>
       </Container>
     </footer>

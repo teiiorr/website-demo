@@ -10,11 +10,11 @@ type Props = {
 
 const statusStyles: Record<ProjectStatus, string> = {
   Rejada:
-    "bg-white/15 text-white ring-1 ring-white/25",
+    "bg-amber-400 text-amber-950 font-semibold",
   Jarayonda:
-    "bg-emerald-400/15 text-emerald-200 ring-1 ring-emerald-300/30",
+    "bg-emerald-500 text-white font-semibold",
   Tugallandi:
-    "bg-sky-400/15 text-sky-200 ring-1 ring-sky-300/30",
+    "bg-sky-500 text-white font-semibold",
 };
 
 export default function ProjectStatusBadge({ status }: Props) {

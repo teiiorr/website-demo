@@ -27,6 +27,7 @@ export const projects: Project[] = [
     excerpt:
       "Bolalar ijodini bir sahnada jamlaydigan festival: she’r, rasm va mini-spektakllar orqali iste’dodlar ochiladi.",
     coverImage: "/assets/images/sample-1.jpg",
+    
     tags: ["Festival", "San’at", "Ijod"],
     details: {
       goal: "Bolalarning ijodiy ishlari uchun ommaviy platforma yaratish.",
@@ -60,7 +61,7 @@ export const projects: Project[] = [
     status: "Rejada",
     excerpt:
       "Bolalar uchun media savodxonligi: foto, video va hikoya qilish (storytelling) bo‘yicha qisqa master-klasslar.",
-    coverImage: "/assets/images/hero-poster.jpg",
+    coverImage: "/assets/images/sample-3.jpg",
     tags: ["Media", "Workshop", "Storytelling"],
     details: {
       goal: "Bolalarga zamonaviy kontent yaratish asoslarini o‘rgatish.",

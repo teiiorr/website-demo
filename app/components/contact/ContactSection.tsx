@@ -18,7 +18,7 @@ export default function ContactSection() {
             </Heading>
             <Text muted className="mb-8">
               Taklif, g‘oya yoki hamkorlik bo‘yicha murojaat qoldiring — biz tez
-              orada javob beramiz. (MVP: forma demo, backend yo‘q)
+              orada javob beramiz.
             </Text>
 
             <div className="rounded-2xl bg-white/5 p-6 ring-soft backdrop-blur-xl">

@@ -58,7 +58,7 @@ export default function ContactForm() {
         Murojaat qoldirish
       </Heading>
       <Text muted className="mb-6">
-        Formani to‘ldiring. (MVP demo: yuborish simulyatsiya qilinadi)
+        Formani to‘ldiring.
       </Text>
 
       <div className="grid gap-4">

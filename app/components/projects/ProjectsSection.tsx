@@ -22,12 +22,7 @@ export default function ProjectsSection() {
             </Text>
           </div>
 
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 ring-soft">
-            <span className="h-2 w-2 rounded-full bg-white/80" />
-            <span className="text-sm text-white/70">
-              Kontent MVP: hardcode namunalar
-            </span>
-          </div>
+         
         </div>
 
         <ProjectsSlider />

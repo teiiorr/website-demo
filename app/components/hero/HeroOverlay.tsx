@@ -14,7 +14,7 @@ export default function HeroVideo() {
         loop
         playsInline
         preload="metadata"
-        poster="/assets/images/hero-poster.jpg"
+        poster="/assets/images/sample-3.jpg"
       >
         {/* Sample video (put in /public/assets/videos/hero.mp4) */}
         <source src="/assets/videos/hero.mp4" type="video/mp4" />
