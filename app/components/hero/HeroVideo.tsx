@@ -21,7 +21,9 @@ export default function HeroVideo() {
       </video>
 
       {/* Extra soft vignette for premium depth */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/35 via-black/15 to-black/55" />
     </div>
   );
 }
+
+

@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uz" className="scroll-smooth">
-      <body className="min-h-dvh bg-black text-white antialiased selection:bg-white/20 selection:text-white">
+      <body className="min-h-dvh bg-[#fbfbff] text-[#0f172a] antialiased">
         {children}
       </body>
     </html>

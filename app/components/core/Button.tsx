@@ -12,13 +12,20 @@ type ButtonProps = {
   href?: string;
 };
 
+
 const variantMap: Record<ButtonVariant, string> = {
-  primary: "bg-white text-black hover:bg-white/90",
+  primary:
+    "bg-gradient-to-r from-[#ff7a59] via-[#ff4ecd] to-[#22d3ee] text-black hover:opacity-95",
+
   secondary:
     "bg-white/10 text-white backdrop-blur-md hover:bg-white/20",
   ghost: "bg-transparent text-white hover:bg-white/10",
 };
 
+const baseClasses =
+  "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm sm:text-base font-medium transition-colors shadow-soft";
+
+  
 export default function Button({
   children,
   className = "",
