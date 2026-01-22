@@ -13,8 +13,12 @@ export default function PartnersSection() {
       <Container>
         <div className="mb-12 max-w-2xl">
           <Heading as="h2" className="mb-4">
-            Hamkorlarimiz
+            Hamkorlar
           </Heading>
+          <Text muted>
+            Hamkorlarimiz uyushmaning ochiqligi va ishonchliligini ko‘rsatadi.
+            Logolar karusel ko‘rinishida beriladi — ixcham, zamonaviy va qulay.
+          </Text>
         </div>
 
         <PartnersCarousel />

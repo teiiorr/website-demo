@@ -17,10 +17,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     <motion.article
       whileHover={{ y: -6 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="group relative flex min-w-[280px] max-w-[320px] flex-col overflow-hidden rounded-2xl bg-white/5 ring-soft backdrop-blur-xl"
+      className="group relative min-w-[280px] max-w-[320px] overflow-hidden rounded-2xl bg-white/5 ring-soft backdrop-blur-xl"
     >
       {/* Glow */}
-      <div className="pointer-events-none absolute -inset-24 bg-white/10 opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute -inset-24 opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-100 bg-white/10" />
 
       {/* Image */}
       <div className="relative h-44 w-full overflow-hidden">
@@ -30,6 +30,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           fill
           sizes="(max-width: 768px) 280px, 320px"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
+          priority={false}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         <div className="absolute left-3 top-3">
@@ -38,7 +39,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Content */}
-      <div className="flex h-full flex-col gap-3 p-5">
+      <div className="flex flex-col gap-3 p-5">
         <Heading as="h3" className="text-xl">
           {project.title}
         </Heading>
@@ -60,7 +61,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* CTA */}
-        <div className="mt-auto inline-flex items-center gap-2 text-sm text-white/80">
+        <div className="mt-4 inline-flex items-center gap-2 text-sm text-white/80">
           <span className="underline underline-offset-4">Batafsil</span>
           <span className="opacity-60">→</span>
         </div>

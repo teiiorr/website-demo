@@ -58,7 +58,7 @@ export default function ContactForm() {
         Murojaat qoldirish
       </Heading>
       <Text muted className="mb-6">
-        Formani to‘ldiring. 
+        Formani to‘ldiring. (MVP demo: yuborish simulyatsiya qilinadi)
       </Text>
 
       <div className="grid gap-4">
@@ -77,7 +77,7 @@ export default function ContactForm() {
           <input
             value={form.contact}
             onChange={onChange("contact")}
-            placeholder="+998... yoki email"
+            placeholder="+998… yoki email"
             className="h-12 rounded-xl bg-black/40 px-4 text-white outline-none ring-1 ring-white/10 transition focus:ring-white/25"
           />
         </label>
