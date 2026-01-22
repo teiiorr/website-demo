@@ -14,9 +14,6 @@ export default function Footer() {
               <div className="text-sm font-semibold text-white">
                 Bolalar Ijodkorlari Uyushmasi
               </div>
-              <div className="text-sm text-white/60">
-                Ijod — kelajakning tili.
-              </div>
             </div>
           </div>
 
@@ -49,7 +46,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/55 md:flex-row md:items-center md:justify-between">
-          <span>© {new Date().getFullYear()} BIU. Barcha huquqlar himoyalangan.</span>
+          <span>© {new Date().getFullYear()} By teiior. Barcha huquqlar himoyalangan.</span>
           <span className="text-white/45">
             MVP vizual demo — kontent va logo keyin qo‘shiladi.
           </span>

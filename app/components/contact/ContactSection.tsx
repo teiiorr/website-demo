@@ -18,14 +18,14 @@ export default function ContactSection() {
             </Heading>
             <Text muted className="mb-8">
               Taklif, g‘oya yoki hamkorlik bo‘yicha murojaat qoldiring — biz tez
-              orada javob beramiz. (MVP: forma demo, backend yo‘q)
+              orada javob beramiz.
             </Text>
 
             <div className="rounded-2xl bg-white/5 p-6 ring-soft backdrop-blur-xl">
               <div className="grid gap-4 text-sm text-white/80">
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-white/60">Telefon</span>
-                  <span>+998 (90) 000-00-00</span>
+                  <span>+998 (88) 464-96-69</span>
                 </div>
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-white/60">Email</span>
@@ -33,7 +33,7 @@ export default function ContactSection() {
                 </div>
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-white/60">Manzil</span>
-                  <span>Toshkent shahri (namuna)</span>
+                  <span>Toshkent shahri, Ziyo 2A</span>
                 </div>
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-white/60">Ish vaqti</span>

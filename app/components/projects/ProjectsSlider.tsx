@@ -31,11 +31,6 @@ export default function ProjectsSlider() {
         </div>
       </motion.div>
 
-      {/* helper hint */}
-      <div className="mt-4 flex items-center justify-between text-sm text-white/55">
-        <span>⬅️ / ➡️ Süring yoki skroll qiling</span>
-        <span className="hidden sm:block">“Batafsil” — MVP’da modal keyin qo‘shamiz</span>
-      </div>
     </div>
   );
 }
