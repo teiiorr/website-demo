@@ -1,5 +1,6 @@
 // app/components/core/Text.tsx
 import React from "react";
+import type { JSX } from "react";
 
 type TextSize = "sm" | "md" | "lg";
 
@@ -24,18 +25,12 @@ export default function Text({
   as: Tag = "p",
   muted = false,
 }: TextProps) {
-  return (
-    <Tag
-      className={[
-        // Typography base
-        sizeMap[size],
-        "leading-relaxed",
-        // Color system
-        muted ? "text-white/70" : "text-white/90",
-        className,
-      ].join(" ")}
-    >
-      {children}
-    </Tag>
-  );
+  const classes = [
+    sizeMap[size],
+    "leading-relaxed",
+    muted ? "text-white/70" : "text-white/90",
+    className,
+  ].join(" ");
+
+  return React.createElement(Tag, { className: classes }, children);
 }
