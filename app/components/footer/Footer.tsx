@@ -14,9 +14,6 @@ export default function Footer() {
               <div className="text-sm font-semibold text-white">
                 Bolalar Ijodkorlari Uyushmasi
               </div>
-              <div className="text-sm text-white/60">
-                Ijod — kelajakning tili.
-              </div>
             </div>
           </div>
 
