@@ -50,16 +50,6 @@ export default function Navbar({ brand = "Bolalar Ijodkorlari", items }: NavbarP
 
           {/* Right actions */}
           <div className="flex items-center gap-2">
-            <a
-              href="#contact"
-              className="hidden sm:inline-flex rounded-full px-4 py-2 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors"
-            >
-              Bog‘lanish
-            </a>
-            <Button href="#projects" variant="secondary" className="px-5 py-2.5">
-              Loyihalar
-            </Button>
-
             {/* Mobile menu hint (placeholder)
                Next class’da MobileMenu qo‘shamiz */}
             <button
