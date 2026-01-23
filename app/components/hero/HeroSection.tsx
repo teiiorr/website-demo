@@ -28,7 +28,8 @@ export default function HeroSection() {
           className="
             absolute
             left-0
-            bottom-24
+              bottom-6
+            sm:bottom-12
             md:bottom-32
             max-w-3xl
           "

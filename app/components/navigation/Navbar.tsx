@@ -17,7 +17,7 @@ type NavbarProps = {
 
 export default function Navbar({ brand = "Bolalar Ijodkorlari", items }: NavbarProps) {
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+       <header className="sticky top-0 z-50">
       {/* Glass bar */}
       <div className="border-b border-white/10 bg-black/30 backdrop-blur-xl">
         <Container className="flex h-16 items-center justify-between">
