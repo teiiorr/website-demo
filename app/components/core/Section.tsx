@@ -1,30 +1,25 @@
 // app/components/core/Section.tsx
 import React from "react";
-import type { JSX } from "react";
+import type { HTMLAttributes, JSX, ReactNode } from "react";
 
 type SectionProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   id?: string;
   as?: keyof JSX.IntrinsicElements;
-} & React.HTMLAttributes<HTMLElement>;
+} & HTMLAttributes<HTMLElement>;
 
 export default function Section({
   children,
   className = "",
   id,
-  as: Tag = "section",
+  as: Component = "section",
   ...rest
 }: SectionProps) {
   const classes = [
-    "relative py-20 sm:py-28 lg:py-32",
-    "overflow-hidden",
+  "relative overflow-hidden py-20 sm:py-28 lg:py-32",
     className,
   ].join(" ");
 
-  return React.createElement(
-    Tag,
-    { ...(rest as any), id, className: classes },
-    children
-  );
+  return React.createElement(Component, { ...rest, id, className: classes }, children);
 }

@@ -28,7 +28,7 @@ export default function Text({
   const classes = [
     sizeMap[size],
     "leading-relaxed",
-    muted ? "text-white/70" : "text-white/90",
+    muted ? "text-[var(--color-text-muted)]" : "text-[var(--color-text-soft)]",
     className,
   ].join(" ");
 

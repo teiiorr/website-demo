@@ -6,8 +6,24 @@
 ========================= */
 :root {
   color-scheme: dark;
+  --color-bg: #020617;
+  --color-bg-muted: #030b23;
+  --color-surface: rgba(15, 23, 42, 0.72);
+  --color-surface-strong: rgba(15, 23, 42, 0.9);
+  --color-surface-elevated: rgba(30, 41, 79, 0.78);
+  --color-border: rgba(148, 163, 255, 0.2);
+  --color-border-strong: rgba(148, 163, 255, 0.34);
+  --color-text: #e5e7ff;
+  --color-text-muted: #9aa4d4;
+  --color-text-soft: #c7cdfd;
+  --color-primary: #7c5cff;
+  --color-primary-strong: #5a3bff;
+  --color-primary-contrast: #f7f5ff;
+  --color-accent: #38bdf8;
+  --color-accent-strong: #0ea5e9;
+  --shadow-soft: 0 30px 80px rgba(6, 10, 30, 0.55);
+  --shadow-card: 0 20px 60px rgba(12, 18, 54, 0.55);
 }
-
 html,
 body {
   height: 100%;
@@ -15,8 +31,12 @@ body {
 
 
 body {
-  background: #000;
-  text-rendering: geometricPrecision;
+   background:
+    radial-gradient(1200px circle at -10% -20%, rgba(124, 92, 255, 0.28), transparent 60%),
+    radial-gradient(900px circle at 110% -10%, rgba(56, 189, 248, 0.22), transparent 65%),
+    linear-gradient(160deg, var(--color-bg) 0%, #040b1f 45%, #020611 100%);
+  color: var(--color-text);
+   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -34,38 +54,43 @@ video {
 @layer utilities {
   .bg-noise {
     position: relative;
+        isolation: isolate;
+
   }
+  
   .bg-noise::before {
     content: "";
     position: absolute;
     inset: 0;
+     z-index: -1;
     pointer-events: none;
-    opacity: 0.05;
-    mix-blend-mode: overlay;
+   opacity: 0.38;
+    mix-blend-mode: soft-light;
     background-image:
-      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.14) 0 1px, transparent 2px),
-      radial-gradient(circle at 80% 30%, rgba(255,255,255,0.10) 0 1px, transparent 2px),
-      radial-gradient(circle at 40% 70%, rgba(255,255,255,0.12) 0 1px, transparent 2px);
-    background-size: 140px 140px;
+      radial-gradient(circle at 20% 20%, rgba(124, 92, 255, 0.18) 0 1px, transparent 2px),
+      radial-gradient(circle at 78% 24%, rgba(56, 189, 248, 0.14) 0 1px, transparent 2px),
+      radial-gradient(circle at 40% 72%, rgba(148, 163, 255, 0.12) 0 1px, transparent 2px);
+    background-size: 160px 160px;
   }
 
   .glass {
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border: 1px solid rgba(255, 255, 255, 0.10);
+     background: var(--color-surface);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
   }
 
   .ring-soft {
     box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.10) inset,
-      0 0 0 1px rgba(255, 255, 255, 0.06);
+      inset 0 0 0 1px rgba(199, 205, 255, 0.12),
+      0 0 0 1px rgba(124, 92, 255, 0.1);
   }
 
   .shadow-soft {
     box-shadow:
-      0 10px 30px rgba(0, 0, 0, 0.45),
-      0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+       var(--shadow-soft),
+      inset 0 0 0 1px rgba(148, 163, 255, 0.08);
   }
 
   .mask-fade-bottom {

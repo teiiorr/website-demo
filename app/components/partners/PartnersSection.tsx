@@ -16,8 +16,7 @@ export default function PartnersSection() {
             Hamkorlar
           </Heading>
           <Text muted>
-            Hamkorlarimiz uyushmaning ochiqligi va ishonchliligini ko‘rsatadi.
-            Logolar karusel ko‘rinishida beriladi — ixcham, zamonaviy va qulay.
+             Biz bilan birga ishlayotgan tashkilotlar ishonch va sifatni belgilaydi.
           </Text>
         </div>
 

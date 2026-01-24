@@ -10,18 +10,18 @@ type Props = {
 
 const statusStyles: Record<ProjectStatus, string> = {
   Rejada:
-    "bg-amber-400 text-amber-950 font-semibold",
+    "border border-[color:rgba(250,204,21,0.35)] bg-[color:rgba(250,204,21,0.18)] text-[#fef3c7]",
   Jarayonda:
-    "bg-emerald-500 text-white font-semibold",
+    "border border-[color:rgba(34,211,238,0.38)] bg-[color:rgba(34,211,238,0.18)] text-[#cffafe]",
   Tugallandi:
-    "bg-sky-500 text-white font-semibold",
+    "border border-[color:rgba(129,140,248,0.4)] bg-[color:rgba(129,140,248,0.2)] text-[#e0e7ff]",
 };
 
 export default function ProjectStatusBadge({ status }: Props) {
   return (
     <span
       className={[
-        "inline-flex items-center rounded-full px-3 py-1 text-xs font-medium backdrop-blur-md",
+        "inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide backdrop-blur-md",
         statusStyles[status],
       ].join(" ")}
     >

@@ -18,7 +18,7 @@ export default function ProjectsSlider() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="overflow-x-auto pb-4"
-        style={{ scrollbarWidth: "thin" }} // Firefox: small scrollbar
+        style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(124,92,255,0.6) rgba(15,23,42,0.7)" }}
       >
         <div className="flex gap-6 pr-6">
           {items.map((p) => (

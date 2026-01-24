@@ -21,22 +21,22 @@ export default function ContactSection() {
               orada javob beramiz.
             </Text>
 
-            <div className="rounded-2xl bg-white/5 p-6 ring-soft backdrop-blur-xl">
-              <div className="grid gap-4 text-sm text-white/80">
+            <div className="rounded-2xl border border-[color:var(--color-border)]/80 bg-[color:var(--color-surface)] p-6 ring-soft backdrop-blur-2xl">
+              <div className="grid gap-4 text-sm text-[var(--color-text-soft)]">
                 <div className="flex items-center justify-between gap-3">
-                  <span className="text-white/60">Telefon</span>
+                  <span className="text-[var(--color-text-muted)]">Telefon</span>
                   <span>+998 (90) 000-00-00</span>
                 </div>
                 <div className="flex items-center justify-between gap-3">
-                  <span className="text-white/60">Email</span>
+                  <span className="text-[var(--color-text-muted)]">Email</span>
                   <span>info@biy.uz</span>
                 </div>
                 <div className="flex items-center justify-between gap-3">
-                  <span className="text-white/60">Manzil</span>
+                  <span className="text-[var(--color-text-muted)]">Manzil</span>
                   <span>Toshkent shahri (namuna)</span>
                 </div>
                 <div className="flex items-center justify-between gap-3">
-                  <span className="text-white/60">Ish vaqti</span>
+                  <span className="text-[var(--color-text-muted)]">Ish vaqti</span>
                   <span>Dush–Juma, 9:00–18:00</span>
                 </div>
               </div>

@@ -11,10 +11,10 @@ type HeadingProps = {
 };
 
 const sizeMap: Record<HeadingLevel, string> = {
-  h1: "text-4xl sm:text-5xl lg:text-6xl font-semibold",
-  h2: "text-3xl sm:text-4xl lg:text-5xl font-semibold",
-  h3: "text-2xl sm:text-3xl lg:text-4xl font-semibold",
-  h4: "text-xl sm:text-2xl font-medium",
+  h1: "text-4xl font-semibold sm:text-5xl lg:text-6xl",
+  h2: "text-3xl font-semibold sm:text-4xl lg:text-5xl",
+  h3: "text-2xl font-semibold sm:text-3xl lg:text-4xl",
+  h4: "text-xl font-medium sm:text-2xl",
 };
 
 export default function Heading({
@@ -28,13 +28,11 @@ export default function Heading({
   return (
     <Tag
       className={[
-        // Typography
         sizeMap[as],
-        "tracking-tight leading-tight",
-        // Optional accent gradient (premium feel)
+        "leading-tight tracking-tight",
         accent
-          ? "bg-gradient-to-r from-white via-white/80 to-white/60 bg-clip-text text-transparent"
-          : "text-white",
+          ? "bg-gradient-to-r from-[var(--color-primary-contrast)] via-[#cbd5ff] to-[var(--color-accent)] bg-clip-text text-transparent"
+          : "text-[var(--color-text)]",
         className,
       ].join(" ")}
     >

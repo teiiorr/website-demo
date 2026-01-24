@@ -1,27 +1,14 @@
-// app/components/hero/HeroVideo.tsx
+// app/components/hero/HeroOverlay.tsx
 "use client";
 
 import React from "react";
 
-export default function HeroVideo() {
+export default function HeroOverlay() {
   return (
-    <div className="absolute inset-0 z-0">
-      {/* Video */}
-      <video
-        className="h-full w-full object-cover opacity-80"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        poster="/assets/images/sample-3.jpg"
-      >
-        {/* Sample video (put in /public/assets/videos/hero.mp4) */}
-        <source src="/assets/videos/hero.mp4" type="video/mp4" />
-      </video>
-
-      {/* Extra soft vignette for premium depth */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
+  <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
+      <div className="absolute -left-24 top-12 h-72 w-72 rounded-full bg-[color:rgba(124,92,255,0.26)] blur-3xl" />
+      <div className="absolute right-[-6rem] top-[-4rem] h-80 w-80 rounded-full bg-[color:rgba(56,189,248,0.24)] blur-3xl" />
+      <div className="absolute bottom-[-8rem] left-1/3 h-96 w-96 rounded-full bg-[color:rgba(90,59,255,0.2)] blur-3xl" />
     </div>
   );
 }
