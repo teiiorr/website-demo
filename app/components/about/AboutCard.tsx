@@ -44,10 +44,8 @@ export default function AboutCard({ title, text, icon }: AboutCardProps) {
       transition={{ duration: 0.3, ease: "easeOut" }}
       className="group relative overflow-hidden rounded-2xl border border-[color:var(--color-border)]/80 bg-[color:var(--color-surface)] p-6 ring-soft backdrop-blur-2xl"
     >
-      {/* Glow on hover */}
       <div className="pointer-events-none absolute -inset-24 bg-[radial-gradient(70%_70%_at_50%_0%,rgba(124,92,255,0.22),transparent_72%)] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
 
-      {/* Icon */}
       <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full border border-[color:rgba(148,163,255,0.28)] bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-accent)] shadow-[0_14px_30px_rgba(92,77,255,0.35)]">
         <Icon type={icon} />
       </div>

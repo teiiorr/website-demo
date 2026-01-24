@@ -28,8 +28,8 @@ export default function Text({
   const classes = [
     sizeMap[size],
     "leading-relaxed",
-    muted ? "text-[var(--color-text-muted)]" : "text-[var(--color-text-soft)]",
-    className,
+  muted ? "text-[var(--color-text-muted)]" : "text-[var(--color-text-soft)]",
+      className,
   ].join(" ");
 
   return React.createElement(Tag, { className: classes }, children);

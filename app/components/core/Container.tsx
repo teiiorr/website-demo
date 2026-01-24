@@ -17,8 +17,7 @@ export default function Container({
   const classes = [
     "relative mx-auto w-full max-w-[1240px] px-5 sm:px-8 lg:px-10",
     className,
-  ].join(" ");
+  ].join(" "); 
 
-return React.createElement(Component, { ...rest, className: classes }, children);
-
+  return React.createElement(Component, { ...rest, className: classes }, children);
 }

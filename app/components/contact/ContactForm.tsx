@@ -37,7 +37,6 @@ export default function ContactForm() {
     e.preventDefault();
     if (!canSend) return;
 
-
     setSent(true);
     setForm({ name: "", contact: "", message: "" });
   };
@@ -54,8 +53,7 @@ export default function ContactForm() {
       transition={{ duration: 0.7, ease: "easeOut" }}
       className="group relative overflow-hidden rounded-2xl border border-[color:var(--color-border)]/80 bg-[color:var(--color-surface)] p-7 ring-soft backdrop-blur-2xl"
     >
-     
-        <div className="pointer-events-none absolute -inset-28 bg-[radial-gradient(70%_70%_at_50%_0%,rgba(124,92,255,0.24),transparent_76%)] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+     <div className="pointer-events-none absolute -inset-28 bg-[radial-gradient(70%_70%_at_50%_0%,rgba(124,92,255,0.24),transparent_76%)] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
 
       <Heading as="h3" className="mb-2 text-2xl">
         Murojaat qoldirish
@@ -76,7 +74,6 @@ export default function ContactForm() {
         </label>
 
         <label className="grid gap-2">
-
           <span className="text-sm font-medium text-[var(--color-text-soft)]">
             Telefon yoki Email
           </span>
@@ -84,20 +81,17 @@ export default function ContactForm() {
             value={form.contact}
             onChange={onChange("contact")}
             placeholder="+998… yoki email"
-
             className={inputClasses}
           />
         </label>
 
         <label className="grid gap-2">
-
           <span className="text-sm font-medium text-[var(--color-text-soft)]">Xabar</span>
           <textarea
             value={form.message}
             onChange={onChange("message")}
             placeholder="Qisqacha yozing…"
             rows={5}
-
             className={`${inputClasses} h-auto resize-none py-3`}
           />
         </label>
@@ -105,7 +99,6 @@ export default function ContactForm() {
         <div className="mt-2 flex flex-wrap items-center gap-3">
           <Button
             variant={canSend ? "primary" : "ghost"}
-
             className={canSend ? "" : "pointer-events-none opacity-60"}
           >
             Yuborish
@@ -118,12 +111,11 @@ export default function ContactForm() {
 
         {sent && (
           <div className="mt-2 rounded-xl border border-[color:rgba(56,189,248,0.4)] bg-[color:rgba(14,165,233,0.16)] px-4 py-3 text-sm font-medium text-[#dbeafe]">
-            Murojaat qabul qilindi. Tez orada bog‘lanamiz.
+            Murojaat qabul qilindi (demo). Tez orada bog‘lanamiz.
           </div>
         )}
       </div>
-
-  
+      
     </motion.form>
   );
 }

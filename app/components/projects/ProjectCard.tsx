@@ -19,8 +19,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       transition={{ duration: 0.35, ease: "easeOut" }}
       className="group relative min-w-[280px] max-w-[320px] overflow-hidden rounded-2xl border border-[color:var(--color-border)]/80 bg-[color:var(--color-surface)] backdrop-blur-2xl"
     >
-      <div className="pointer-events-none absolute -inset-28 bg-[radial-gradient(65%_65%_at_50%_0%,rgba(124,92,255,0.24),transparent_75%)] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+      {/* Glow */}
+       <div className="pointer-events-none absolute -inset-28 bg-[radial-gradient(65%_65%_at_50%_0%,rgba(124,92,255,0.24),transparent_75%)] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
 
+      {/* Image */}
       <div className="relative h-44 w-full overflow-hidden">
         <Image
           src={project.coverImage}
@@ -36,6 +38,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
       </div>
 
+      {/* Content */}
       <div className="flex flex-col gap-3 p-5">
         <Heading as="h3" className="text-xl">
           {project.title}
@@ -45,6 +48,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {project.excerpt}
         </Text>
 
+        {/* Tags */}
         <div className="mt-2 flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <span
@@ -56,7 +60,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </div>
 
-         <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-accent)] transition-colors duration-300 group-hover:text-[#7dd3fc]">
+        {/* CTA */}
+        <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-accent)] transition-colors duration-300 group-hover:text-[#7dd3fc]">
           <span className="underline decoration-[color:rgba(56,189,248,0.45)] underline-offset-4">
             Batafsil
           </span>

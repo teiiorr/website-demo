@@ -17,7 +17,7 @@ export default function Section({
   ...rest
 }: SectionProps) {
   const classes = [
-  "relative overflow-hidden py-20 sm:py-28 lg:py-32",
+    "relative overflow-hidden py-24 sm:py-32 lg:py-36",
     className,
   ].join(" ");
 

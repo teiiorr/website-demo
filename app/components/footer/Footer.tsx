@@ -7,7 +7,7 @@ export default function Footer() {
       <Container className="py-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-3">
-            <div className="grid h-11 w-11 place-items-center rounded-full border border-[color:rgba(148,163,255,0.3)] bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-accent)] shadow-[0_16px_35px_rgba(92,77,255,0.45)]">
+           <div className="grid h-11 w-11 place-items-center rounded-full border border-[color:rgba(148,163,255,0.3)] bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-accent)] shadow-[0_16px_35px_rgba(92,77,255,0.45)]">
               <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-primary-contrast)]" />
             </div>
             <div>
@@ -34,8 +34,8 @@ export default function Footer() {
             ))}
           </div>
         </div>
-
-     <div className="mt-8 flex flex-col gap-3 border-t border-[color:var(--color-border)]/70 pt-6 text-sm text-[var(--color-text-muted)] md:flex-row md:items-center md:justify-between">
+  
+        <div className="mt-8 flex flex-col gap-3 border-t border-[color:var(--color-border)]/70 pt-6 text-sm text-[var(--color-text-muted)] md:flex-row md:items-center md:justify-between">
           <span>
             © teiior dev | {new Date().getFullYear()}. Barcha huquqlar himoyalangan.
           </span>

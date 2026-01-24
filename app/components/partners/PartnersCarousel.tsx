@@ -9,10 +9,11 @@ export default function PartnersCarousel() {
   const items = useMemo(() => [...partners, ...partners], []);
 
   return (
-      <div className="group relative overflow-hidden rounded-[28px] border border-[color:var(--color-border)]/80 bg-[color:rgba(12,18,45,0.85)] shadow-soft">
+    <div className="group relative overflow-hidden rounded-[28px] border border-[color:var(--color-border)]/80 bg-[color:rgba(12,18,45,0.85)] shadow-soft">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_120%_at_0%_0%,rgba(124,92,255,0.18),transparent_55%)]" />
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-[color:rgba(2,6,23,0.95)] via-[color:rgba(2,6,23,0.7)] to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-[color:rgba(2,6,23,0.95)] via-[color:rgba(2,6,23,0.7)] to-transparent" />
+
       <div className="relative py-10">
         <div className="flex gap-8 px-8 will-change-transform [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
           <div className="flex min-w-max items-center gap-8 animate-[marquee_28s_linear_infinite] group-hover:[animation-play-state:paused]">

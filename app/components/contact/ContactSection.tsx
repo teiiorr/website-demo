@@ -25,19 +25,20 @@ export default function ContactSection() {
               <div className="grid gap-4 text-sm text-[var(--color-text-soft)]">
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-[var(--color-text-muted)]">Telefon</span>
-                  <span>+998 (90) 000-00-00</span>
+                  <span>+998 (88) 464-96-69</span>
                 </div>
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-[var(--color-text-muted)]">Email</span>
-                  <span>info@biy.uz</span>
+                  <span>info@teiiordev.uz</span>
                 </div>
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-[var(--color-text-muted)]">Manzil</span>
-                  <span>Toshkent shahri (namuna)</span>
+                  <span>Toshkent shahri (Ziyo ko'chasi, 2A)</span>
                 </div>
                 <div className="flex items-center justify-between gap-3">
+                  <span className="text-white/60">Ish vaqti</span>
                   <span className="text-[var(--color-text-muted)]">Ish vaqti</span>
-                  <span>Dush–Juma, 9:00–18:00</span>
+                  <span>Dush–Shanba, 10:00–19:00</span>
                 </div>
               </div>
             </div>
