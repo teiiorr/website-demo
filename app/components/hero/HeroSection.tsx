@@ -34,12 +34,13 @@ export default function HeroSection() {
             max-w-3xl
           "
         >
-          <div className="mb-10">
+          <div className="mb-6 sm:mb-10">
             <TypingHeading
               text="Bolalar ijodkorlari uyushmasi"
               speed={0.045}
-              className="mb-3"
+              className="mb-2 sm:mb-3"
               showCaret
+                   mobileBreakAt="uyushmasi"
             />
 
             <Text size="lg" muted className="max-w-2xl">

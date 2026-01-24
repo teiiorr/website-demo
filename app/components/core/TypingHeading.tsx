@@ -9,15 +9,33 @@ type TypingHeadingProps = {
   speed?: number; // seconds per character
   className?: string;
   showCaret?: boolean;
+   mobileBreakAt?: string;
 };
 
 export default function TypingHeading({
   text,
   speed = 0.05,
   className,
-  showCaret = true,
+  showCaret = true,  
+  mobileBreakAt,
 }: TypingHeadingProps) {
-  const letters = Array.from(text);
+   const renderLetters = (value: string) =>
+    Array.from(value).map((char, i) => (
+      <motion.span
+        key={`${char}-${i}`}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+      >
+        {char === " " ? "\u00A0" : char}
+      </motion.span>
+    ));
+
+  const breakIndex = mobileBreakAt ? text.indexOf(mobileBreakAt) : -1;
+  const beforeBreak =
+    breakIndex > -1 ? text.slice(0, breakIndex).trimEnd() : text;
+  const afterBreak = breakIndex > -1 ? text.slice(breakIndex).trimStart() : "";
 
   return (
     <Heading as="h1" accent className={className}>
@@ -33,17 +51,16 @@ export default function TypingHeading({
         }}
         className="inline-block"
       >
-        {letters.map((char, i) => (
-          <motion.span
-            key={`${char}-${i}`}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1 },
-            }}
-          >
-            {char === " " ? "\u00A0" : char}
-          </motion.span>
-        ))}
+        {renderLetters(beforeBreak)}
+        {breakIndex > -1 && (
+          <>
+            <span aria-hidden="true" className="hidden sm:inline">
+              {"\u00A0"}
+            </span>
+            <br className="sm:hidden" />
+            {renderLetters(afterBreak)}
+          </>
+        )}
       </motion.span>
 
       {showCaret && (
