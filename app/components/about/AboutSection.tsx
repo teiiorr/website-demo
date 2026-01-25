@@ -10,10 +10,10 @@ import AboutCard from "./AboutCard";
 
 export default function AboutSection() {
   return (
-    <Section id="about" className="bg-noise">
+    <Section id="about" className="bg-noise section-about">
       <Container>
         <div className="mb-12 max-w-2xl">
-          <Heading as="h2" className="mb-4">
+          <Heading as="h2" className="mb-4" accent>
             Biz haqimizda
           </Heading>
           <Text muted>
@@ -31,7 +31,11 @@ export default function AboutSection() {
             show: {
               opacity: 1,
               y: 0,
-              transition: { duration: 0.7, ease: "easeOut", staggerChildren: 0.12 },
+              transition: {
+                duration: 0.7,
+                ease: "easeOut",
+                staggerChildren: 0.12,
+              },
             },
           }}
           className="grid gap-6 md:grid-cols-3"
@@ -41,14 +45,16 @@ export default function AboutSection() {
             text="Bolalar isteʼdodini ko‘rsatish va rivojlantirish uchun ishonchli maydon yaratish."
             icon="spark"
           />
+
           <AboutCard
             title="Yo‘nalishlar"
-            text="Adabiyot, rasm, dizayn, media, teatr va zamonaviy kreativ dasturlar."
+            text="Adabiyot, san’at, media va kreativ texnologiyalar orqali rivojlanish."
             icon="grid"
           />
+
           <AboutCard
-            title="Nega muhim?"
-            text="Ijodkor bolalar — kuchli kelajak. Biz ularni qo‘llab-quvvatlashni tizimli qilamiz."
+            title="Qadriyatlar"
+            text="Ochiqlik, qo‘llab-quvvatlash va bolalar kelajagiga ishonch."
             icon="shield"
           />
         </motion.div>

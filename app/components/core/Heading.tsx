@@ -1,4 +1,3 @@
-// app/components/core/Heading.tsx
 import React from "react";
 
 type HeadingLevel = "h1" | "h2" | "h3" | "h4";
@@ -31,7 +30,7 @@ export default function Heading({
         sizeMap[as],
         "leading-tight tracking-tight",
         accent
-          ? "bg-gradient-to-r from-[var(--color-primary-contrast)] via-[#cbd5ff] to-[var(--color-accent)] bg-clip-text text-transparent"
+          ? "bg-gradient-to-r from-[var(--color-primary-contrast)] via-[var(--section-accent-strong)] to-[var(--section-accent)] bg-clip-text text-transparent"
           : "text-[var(--color-text)]",
         className,
       ].join(" ")}

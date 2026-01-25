@@ -20,27 +20,21 @@ export default function HeroSection() {
       <HeroOverlay />
 
       {/* Content */}
-      <Container className="relative z-10 min-h-[70svh]">
+      <Container className="relative z-10 flex min-h-[70svh] items-end">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
-          className="
-            absolute
-            left-0
-              bottom-6
-            sm:bottom-12
-            md:bottom-32
-            max-w-3xl
-          "
+          // 👇 небольшой lift на десктопе, чтобы карточка «дышала»
+          className="max-w-3xl rounded-3xl border border-[color:var(--color-border)]/70 bg-[color:var(--color-surface-strong)]/85 p-6 shadow-soft backdrop-blur-2xl sm:p-8 lg:p-10 lg:mb-12"
         >
-          <div className="mb-6 sm:mb-10">
+          <div className="mb-6 sm:mb-8">
             <TypingHeading
               text="Bolalar ijodkorlari uyushmasi"
-              speed={0.045}
-              className="mb-2 sm:mb-3"
+              speed={0.05}
+              className="mb-3"
               showCaret
-                   mobileBreakAt="uyushmasi"
+              mobileBreakAt="uyushmasi"
             />
 
             <Text size="lg" muted className="max-w-2xl">

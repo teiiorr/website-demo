@@ -9,11 +9,11 @@ import ContactForm from "./ContactForm";
 
 export default function ContactSection() {
   return (
-    <Section id="contact" className="bg-noise">
+    <Section id="contact" className="bg-noise section-contact">
       <Container>
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
           <div className="max-w-xl">
-            <Heading as="h2" className="mb-4">
+            <Heading as="h2" className="mb-4" accent>
               Bog‘lanish
             </Heading>
             <Text muted className="mb-8">
@@ -27,16 +27,18 @@ export default function ContactSection() {
                   <span className="text-[var(--color-text-muted)]">Telefon</span>
                   <span>+998 (88) 464-96-69</span>
                 </div>
+
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-[var(--color-text-muted)]">Email</span>
                   <span>info@teiiordev.uz</span>
                 </div>
+
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-[var(--color-text-muted)]">Manzil</span>
                   <span>Toshkent shahri (Ziyo ko'chasi, 2A)</span>
                 </div>
+
                 <div className="flex items-center justify-between gap-3">
-                  <span className="text-white/60">Ish vaqti</span>
                   <span className="text-[var(--color-text-muted)]">Ish vaqti</span>
                   <span>Dush–Shanba, 10:00–19:00</span>
                 </div>

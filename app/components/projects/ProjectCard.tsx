@@ -17,10 +17,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     <motion.article
       whileHover={{ y: -6 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="group relative min-w-[280px] max-w-[320px] overflow-hidden rounded-2xl border border-[color:var(--color-border)]/80 bg-[color:var(--color-surface)] backdrop-blur-2xl"
+      className="group relative flex min-w-[280px] max-w-[340px] flex-col overflow-hidden rounded-2xl border border-[color:var(--color-border)]/80 bg-[color:var(--color-surface)] backdrop-blur-2xl"
     >
       {/* Glow */}
-       <div className="pointer-events-none absolute -inset-28 bg-[radial-gradient(65%_65%_at_50%_0%,rgba(124,92,255,0.24),transparent_75%)] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute -inset-28 bg-[radial-gradient(65%_65%_at_50%_0%,var(--section-accent-soft),transparent_75%)] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
 
       {/* Image */}
       <div className="relative h-44 w-full overflow-hidden">
@@ -32,14 +32,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           priority={false}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[color:rgba(2,6,23,0.9)] via-[color:rgba(2,6,23,0.4)] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[color:rgba(8,13,28,0.9)] via-[color:rgba(8,13,28,0.4)] to-transparent" />
         <div className="absolute left-3 top-3">
           <ProjectStatusBadge status={project.status} />
         </div>
       </div>
 
       {/* Content */}
-      <div className="flex flex-col gap-3 p-5">
+      <div className="flex flex-1 flex-col gap-3 p-5">
         <Heading as="h3" className="text-xl">
           {project.title}
         </Heading>
@@ -53,7 +53,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-[color:rgba(148,163,255,0.28)] bg-[color:rgba(124,92,255,0.16)] px-3 py-1 text-xs font-medium text-[var(--color-text-soft)]"
+              className="rounded-full border border-[color:rgba(148,163,184,0.3)] bg-[color:var(--section-accent-soft)] px-3 py-1 text-xs font-medium text-[var(--color-text-soft)]"
             >
               #{tag}
             </span>
@@ -61,11 +61,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* CTA */}
-        <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-accent)] transition-colors duration-300 group-hover:text-[#7dd3fc]">
-          <span className="underline decoration-[color:rgba(56,189,248,0.45)] underline-offset-4">
-            Batafsil
+        <div className="mt-auto pt-4">
+          <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--section-accent)] transition-colors duration-300 group-hover:text-[var(--section-accent-strong)]">
+            Batafsil <span className="opacity-70">→</span>
           </span>
-          <span className="opacity-70">→</span>
         </div>
       </div>
     </motion.article>

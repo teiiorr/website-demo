@@ -17,9 +17,9 @@ export default function HeroVideo() {
       >
         <source src="/assets/videos/hero.mp4" type="video/mp4" />
       </video>
-      
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(124,92,255,0.32),transparent_62%)]" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[color:rgba(2,6,23,0.35)] via-[color:rgba(2,6,23,0.55)] to-[color:rgba(2,6,23,0.92)]" />
+
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(30,64,175,0.3),transparent_62%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[color:rgba(8,13,28,0.35)] via-[color:rgba(8,13,28,0.62)] to-[color:rgba(6,10,20,0.96)]" />
     </div>
   );
 }

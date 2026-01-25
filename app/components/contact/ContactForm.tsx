@@ -1,4 +1,3 @@
-// app/components/contact/ContactForm.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -42,7 +41,7 @@ export default function ContactForm() {
   };
 
   const inputClasses =
-    "h-12 rounded-xl border border-[color:rgba(148,163,255,0.28)] bg-[color:rgba(15,23,42,0.72)] px-4 text-[var(--color-text)] outline-none transition-all duration-300 placeholder:text-[color:rgba(154,164,212,0.7)] focus:border-[color:var(--color-border-strong)] focus:bg-[color:rgba(30,41,79,0.85)] focus:ring-2 focus:ring-[color:rgba(124,92,255,0.35)]";
+    "h-12 rounded-xl border border-[color:rgba(148,163,184,0.28)] bg-[color:var(--color-surface-elevated)] px-4 text-[var(--color-text)] outline-none transition-all duration-300 placeholder:text-[color:rgba(148,163,184,0.7)] focus:border-[color:var(--color-border-strong)] focus:bg-[color:var(--color-surface-strong)] focus:ring-2 focus:ring-[color:var(--section-accent)]/40";
 
   return (
     <motion.form
@@ -53,7 +52,7 @@ export default function ContactForm() {
       transition={{ duration: 0.7, ease: "easeOut" }}
       className="group relative overflow-hidden rounded-2xl border border-[color:var(--color-border)]/80 bg-[color:var(--color-surface)] p-7 ring-soft backdrop-blur-2xl"
     >
-     <div className="pointer-events-none absolute -inset-28 bg-[radial-gradient(70%_70%_at_50%_0%,rgba(124,92,255,0.24),transparent_76%)] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute -inset-28 bg-[radial-gradient(70%_70%_at_50%_0%,var(--section-accent-soft),transparent_76%)] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
 
       <Heading as="h3" className="mb-2 text-2xl">
         Murojaat qoldirish
@@ -64,7 +63,9 @@ export default function ContactForm() {
 
       <div className="grid gap-4">
         <label className="grid gap-2">
-          <span className="text-sm font-medium text-[var(--color-text-soft)]">Ism</span>
+          <span className="text-sm font-medium text-[var(--color-text-soft)]">
+            Ism
+          </span>
           <input
             value={form.name}
             onChange={onChange("name")}
@@ -80,13 +81,15 @@ export default function ContactForm() {
           <input
             value={form.contact}
             onChange={onChange("contact")}
-            placeholder="+998… yoki email"
+            placeholder="998 90 123 45 67 / email@example.com"
             className={inputClasses}
           />
         </label>
 
         <label className="grid gap-2">
-          <span className="text-sm font-medium text-[var(--color-text-soft)]">Xabar</span>
+          <span className="text-sm font-medium text-[var(--color-text-soft)]">
+            Xabar
+          </span>
           <textarea
             value={form.message}
             onChange={onChange("message")}
@@ -110,12 +113,11 @@ export default function ContactForm() {
         </div>
 
         {sent && (
-          <div className="mt-2 rounded-xl border border-[color:rgba(56,189,248,0.4)] bg-[color:rgba(14,165,233,0.16)] px-4 py-3 text-sm font-medium text-[#dbeafe]">
+          <div className="mt-2 rounded-xl border border-[color:rgba(56,189,248,0.35)] bg-[color:rgba(14,165,233,0.12)] px-4 py-3 text-sm font-medium text-[var(--color-text-soft)]">
             Murojaat qabul qilindi (demo). Tez orada bog‘lanamiz.
           </div>
         )}
       </div>
-      
     </motion.form>
   );
 }

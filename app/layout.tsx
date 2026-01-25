@@ -1,6 +1,13 @@
 // app/layout.tsx
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Bolalar Ijodkorlari Uyushmasi",
@@ -26,7 +33,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uz" className="scroll-smooth">
-      <body className="min-h-dvh bg-transparent text-[var(--color-text)] antialiased">
+      <body
+        className={`${inter.variable} min-h-dvh bg-transparent text-[var(--color-text)] antialiased`}
+      >
         {children}
       </body>
     </html>

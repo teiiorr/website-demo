@@ -10,11 +10,11 @@ type Props = {
 
 const statusStyles: Record<ProjectStatus, string> = {
   Rejada:
-    "border border-[color:rgba(250,204,21,0.35)] bg-[color:rgba(250,204,21,0.18)] text-[#fef3c7]",
+    "border border-[color:rgba(251,191,36,0.35)] bg-[color:rgba(251,191,36,0.18)] text-[#fde68a]",
   Jarayonda:
-    "border border-[color:rgba(34,211,238,0.38)] bg-[color:rgba(34,211,238,0.18)] text-[#cffafe]",
+    "border border-[color:rgba(14,165,233,0.38)] bg-[color:rgba(14,165,233,0.18)] text-[#bae6fd]",
   Tugallandi:
-    "border border-[color:rgba(129,140,248,0.4)] bg-[color:rgba(129,140,248,0.2)] text-[#e0e7ff]",
+    "border border-[color:rgba(94,234,212,0.4)] bg-[color:rgba(94,234,212,0.2)] text-[#ccfbf1]",
 };
 
 export default function ProjectStatusBadge({ status }: Props) {

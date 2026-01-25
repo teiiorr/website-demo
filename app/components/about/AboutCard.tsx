@@ -1,6 +1,4 @@
-// app/components/about/AboutCard.tsx
-"use client";
-
+import React from "react";
 import { motion } from "framer-motion";
 import Heading from "../core/Heading";
 import Text from "../core/Text";
@@ -13,9 +11,9 @@ type AboutCardProps = {
   icon: IconType;
 };
 
-function Icon({ type }: { type: IconType }) {
-  const iconClassName = "h-6 w-6 fill-[var(--color-primary-contrast)]";
+const iconClassName = "h-6 w-6 text-white";
 
+function Icon({ type }: { type: IconType }) {
   if (type === "spark") {
     return (
       <svg viewBox="0 0 24 24" className={iconClassName}>
@@ -44,9 +42,9 @@ export default function AboutCard({ title, text, icon }: AboutCardProps) {
       transition={{ duration: 0.3, ease: "easeOut" }}
       className="group relative overflow-hidden rounded-2xl border border-[color:var(--color-border)]/80 bg-[color:var(--color-surface)] p-6 ring-soft backdrop-blur-2xl"
     >
-      <div className="pointer-events-none absolute -inset-24 bg-[radial-gradient(70%_70%_at_50%_0%,rgba(124,92,255,0.22),transparent_72%)] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute -inset-24 bg-[radial-gradient(70%_70%_at_50%_0%,var(--section-accent-soft),transparent_72%)] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
 
-      <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full border border-[color:rgba(148,163,255,0.28)] bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-accent)] shadow-[0_14px_30px_rgba(92,77,255,0.35)]">
+      <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full border border-[color:rgba(148,163,184,0.28)] bg-gradient-to-br from-[var(--section-accent-strong)] to-[var(--section-accent)] shadow-[0_14px_30px_rgba(30,64,175,0.35)]">
         <Icon type={icon} />
       </div>
 

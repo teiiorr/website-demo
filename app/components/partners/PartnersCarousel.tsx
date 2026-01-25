@@ -9,11 +9,10 @@ export default function PartnersCarousel() {
   const track = useMemo(() => [...partners, ...partners], []);
 
   return (
-    <section className="group relative overflow-hidden rounded-[28px] border border-[color:var(--color-border)]/50 bg-[#FFF6D8] shadow-soft">
-      {/* мягкий свет под неон */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_120%_at_0%_0%,rgba(255,210,120,0.22),transparent_55%)]" />
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[#FFF6D8] via-[#FFF6D8]/70 to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[#FFF6D8] via-[#FFF6D8]/70 to-transparent" />
+    <section className="group relative overflow-hidden rounded-[28px] border border-[color:var(--color-border)]/60 bg-[color:var(--color-surface)] shadow-soft">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_120%_at_0%_0%,var(--section-accent-soft),transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[color:var(--color-surface)] via-[color:var(--color-surface)]/70 to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[color:var(--color-surface)] via-[color:var(--color-surface)]/70 to-transparent" />
 
       <div className="relative py-10">
         {/* viewport */}

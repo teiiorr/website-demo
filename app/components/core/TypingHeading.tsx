@@ -68,8 +68,8 @@ export default function TypingHeading({
           aria-hidden="true"
           className="ml-1 inline-block h-[1em] w-[2px] bg-current align-[-0.1em]"
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 1, 0] }}
-          transition={{ repeat: Infinity, duration: 1 }}
+       animate={{ opacity: [0, 1, 0, 1, 0] }}
+          transition={{ repeat: 1, duration: 1.8, ease: "easeInOut" }}
         />
       )}
     </Heading>

@@ -5,6 +5,7 @@ import { navigation } from "./data/navigation";
 // Sections (hozircha skeleton, keyin bittalab yozamiz)
 import HeroSection from "./components/hero/HeroSection";
 import AboutSection from "./components/about/AboutSection";
+import NewsSection from "./components/news/NewsSection";
 import ProjectsSection from "./components/projects/ProjectsSection";
 import PartnersSection from "./components/partners/PartnersSection";
 import ContactSection from "./components/contact/ContactSection";
@@ -22,7 +23,10 @@ export default function HomePage() {
       {/* ABOUT */}
       <AboutSection />
 
-      {/* PROJECTS / NEWS */}
+      {/* NEWS */}
+      <NewsSection />
+
+      {/* PROJECTS */}
       <ProjectsSection />
 
       {/* PARTNERS */}
