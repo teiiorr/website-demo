@@ -40,16 +40,21 @@ export default function Navbar({ brand = "Bolalar Ijodkorlari", items }: NavbarP
 
   return (
     <header className="sticky top-0 z-50">
-      <div className="border-b border-[color:var(--color-border)]/70 bg-[color:var(--color-surface-strong)]/95 backdrop-blur-2xl shadow-[0_14px_30px_rgba(6,12,28,0.4)]">
+      <div className="border-b border-[color:var(--color-border)]/70 bg-[color:var(--color-surface-strong)]/95 backdrop-blur-2xl shadow-[0_14px_30px_rgba(6,12,28,0.25)]">
         <Container className="flex h-16 items-center justify-between">
+          {/* Brand */}
           <a
             href="#top"
             className="group inline-flex items-center gap-3 rounded-full border border-transparent px-2 py-1 transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:rgba(148,163,184,0.22)]"
           >
-            <span className="relative grid h-10 w-10 place-items-center rounded-full border border-[color:rgba(148,163,184,0.25)] bg-gradient-to-br from-[color:rgba(29,78,216,0.35)] via-[color:rgba(29,78,216,0.12)] to-[color:rgba(14,165,233,0.22)] shadow-[0_12px_30px_rgba(30,64,175,0.35)]">
-              <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-primary-contrast)]" />
-              <span className="absolute -inset-7 -z-10 rounded-full bg-[color:rgba(29,78,216,0.32)] opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-70" />
+            {/* Empty logo circle */}
+            <span className="relative grid h-10 w-10 place-items-center rounded-full border border-[color:rgba(148,163,184,0.25)] bg-gradient-to-br from-[color:rgba(29,78,216,0.35)] via-[color:rgba(29,78,216,0.12)] to-[color:rgba(14,165,233,0.22)] shadow-[0_12px_30px_rgba(30,64,175,0.25)]">
+              {/* nothing inside on purpose */}
+
+              {/* subtle glow on hover */}
+              <span className="absolute -inset-7 -z-10 rounded-full bg-[color:rgba(29,78,216,0.22)] opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-70" />
             </span>
+
             <span className="text-sm font-semibold tracking-tight text-[var(--color-text)] sm:text-base">
               {brand}
             </span>
@@ -68,35 +73,28 @@ export default function Navbar({ brand = "Bolalar Ijodkorlari", items }: NavbarP
             ))}
           </nav>
 
-          {/* Right actions */}
           <div className="flex items-center gap-2">
             <ThemeToggle />
 
+            {/* Mobile menu button */}
             <button
               type="button"
-              onClick={() => setMenuOpen((prev) => !prev)}
               aria-label="Menyu"
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:rgba(148,163,184,0.28)] bg-[color:rgba(29,78,216,0.12)] text-[var(--color-text)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:rgba(148,163,184,0.4)] hover:bg-[color:rgba(29,78,216,0.2)] md:hidden"
+              onClick={() => setMenuOpen((v) => !v)}
+              className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-surface)] text-[var(--color-text)] shadow-[0_10px_30px_rgba(15,23,42,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:var(--color-border-strong)] md:hidden"
             >
-              <span className="relative h-4 w-5">
-                <span
-                  className={`absolute left-0 top-0 h-0.5 w-5 rounded bg-[var(--color-text)] transition-all duration-300 ${
-                    menuOpen ? "translate-y-1.5 rotate-45" : ""
-                  }`}
-                />
-                <span
-                  className={`absolute left-0 top-1.5 h-0.5 w-5 rounded bg-[color:rgba(226,232,240,0.7)] transition-all duration-300 ${
-                    menuOpen ? "opacity-0" : ""
-                  }`}
-                />
-                <span
-                  className={`absolute left-0 top-3 h-0.5 w-5 rounded bg-[var(--color-text)] transition-all duration-300 ${
-                    menuOpen ? "-translate-y-1.5 -rotate-45" : ""
-                  }`}
-                />
-              </span>
+              <span
+                className={`absolute h-[1.5px] w-5 bg-current transition-transform duration-300 ${
+                  menuOpen ? "translate-y-0 rotate-45" : "-translate-y-1.5"
+                }`}
+              />
+              <span
+                className={`absolute h-[1.5px] w-5 bg-current transition-transform duration-300 ${
+                  menuOpen ? "translate-y-0 -rotate-45" : "translate-y-1.5"
+                }`}
+              />
             </button>
           </div>
         </Container>
@@ -104,7 +102,7 @@ export default function Navbar({ brand = "Bolalar Ijodkorlari", items }: NavbarP
 
       {/* Mobile menu layer */}
       <div
-        className={`md:hidden ${
+        className={`fixed inset-0 z-[100] md:hidden ${
           menuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         } transition-opacity duration-300`}
       >
@@ -113,7 +111,7 @@ export default function Navbar({ brand = "Bolalar Ijodkorlari", items }: NavbarP
           type="button"
           aria-label="Menyuni yopish"
           onClick={() => setMenuOpen(false)}
-          className={`fixed inset-0 z-40 bg-[color:rgba(15,23,42,0.5)] backdrop-blur-sm transition-opacity duration-300 ${
+          className={`absolute inset-0 z-[110] bg-black/50 backdrop-blur-md transition-opacity duration-300 ${
             menuOpen ? "opacity-100" : "opacity-0"
           }`}
         />
@@ -121,8 +119,8 @@ export default function Navbar({ brand = "Bolalar Ijodkorlari", items }: NavbarP
         {/* panel */}
         <nav
           id="mobile-menu"
-          className={`absolute left-0 right-0 z-50 mx-4 mt-3 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-strong)] p-4 shadow-[0_18px_40px_rgba(6,12,28,0.35)] transition-all duration-300 ${
-            menuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
+          className={`absolute left-0 right-0 z-[120] mx-4 mt-20 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-strong)] p-4 shadow-[0_18px_40px_rgba(6,12,28,0.25)] transition-all duration-300 ${
+            menuOpen ? "translate-y-0 opacity-100" : "-translate-y-6 opacity-0"
           }`}
         >
           <div className="flex flex-col gap-2">

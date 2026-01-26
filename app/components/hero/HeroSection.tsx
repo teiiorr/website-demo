@@ -14,7 +14,7 @@ export default function HeroSection() {
       {/* Video starts ONLY after intro */}
       <HeroVideo shouldPlay={introDone} />
 
-      {/* INTRO OVERLAY (disappears полностью) */}
+      {/* INTRO OVERLAY */}
       <AnimatePresence>
         {!introDone && (
           <motion.div
@@ -23,23 +23,39 @@ export default function HeroSection() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.55, ease: "easeInOut" }}
           >
-            <div className="w-full max-w-5xl px-6">
-              <TypingHeading
-                text={`BOLALAR IJODKORLARI\nUYUSHMASI`}
-                speed={0.045}
-                className="text-4xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-center"
-                showCaret
-                onDone={() => setIntroDone(true)}
-              />
+            <div className="w-full max-w-5xl px-4 sm:px-6">
+              <div className="mx-auto max-w-[22rem] sm:max-w-none">
+                {/* Mobile: 3 words = 3 lines */}
+                <div className="block sm:hidden">
+                  <TypingHeading
+                    text={`BOLALAR\nIJODKORLARI\nUYUSHMASI`}
+                    speed={0.045}
+                    className="text-3xl leading-[1.1] tracking-tight text-center"
+                    showCaret
+                    onDone={() => setIntroDone(true)}
+                  />
+                </div>
 
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.45, duration: 0.55 }}
-                className="mt-6 text-center text-sm sm:text-base text-[color:var(--color-text-muted)]"
-              >
-                bolalar isteʼdodini qo‘llab-quvvatlaydigan platforma
-              </motion.p>
+                {/* Tablet / Desktop */}
+                <div className="hidden sm:block">
+                  <TypingHeading
+                    text={`BOLALAR IJODKORLARI\nUYUSHMASI`}
+                    speed={0.045}
+                    className="text-6xl lg:text-7xl leading-[1.05] tracking-tight text-center"
+                    showCaret
+                    onDone={() => setIntroDone(true)}
+                  />
+                </div>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.45, duration: 0.55 }}
+                  className="mt-5 text-center text-xs sm:text-base text-[color:var(--color-text-muted)]"
+                >
+                  bolalar isteʼdodini qo‘llab-quvvatlaydigan uyushma
+                </motion.p>
+              </div>
             </div>
           </motion.div>
         )}

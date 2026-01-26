@@ -28,19 +28,10 @@ export default function Heading({
     <Tag
       className={[
         sizeMap[as],
-        "leading-tight tracking-tight",
-        accent
-          ? [
-              // DARK: gradient
-              "bg-gradient-to-r from-[var(--color-primary-contrast)] via-[var(--section-accent-strong)] to-[var(--section-accent)] bg-clip-text text-transparent",
-              // LIGHT: make it solid black (disable gradient look)
-              "data-[theme=light]:bg-none data-[theme=light]:text-[var(--color-text)] data-[theme=light]:text-clip-unset",
-            ].join(" ")
-          : "text-[var(--color-text)]",
+        "leading-tight tracking-[-0.02em]",
+        accent ? "heading-accent" : "text-[var(--color-text)]",
         className,
       ].join(" ")}
-      // we use this attribute to style via Tailwind "data-[theme=light]:..."
-      data-theme={typeof document !== "undefined" ? document.documentElement.dataset.theme : undefined}
     >
       {children}
     </Tag>

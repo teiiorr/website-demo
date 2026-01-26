@@ -1,13 +1,12 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/theme/ThemeProvider";
 
-
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-sans",
   display: "swap",
 });
 
@@ -36,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="uz" className="scroll-smooth">
       <body
-        className={`${inter.variable} min-h-dvh bg-transparent text-[var(--color-text)] antialiased`}
+        className={`${jakarta.variable} min-h-dvh bg-transparent text-[var(--color-text)] antialiased`}
       >
         <ThemeProvider>{children}</ThemeProvider>
       </body>

@@ -13,9 +13,9 @@ type TextProps = {
 };
 
 const sizeMap: Record<TextSize, string> = {
-  sm: "text-sm sm:text-base",
-  md: "text-base sm:text-lg",
-  lg: "text-lg sm:text-xl",
+  sm: "text-sm sm:text-[0.98rem]",
+  md: "text-base sm:text-[1.06rem]",
+  lg: "text-lg sm:text-[1.2rem]",
 };
 
 export default function Text({
@@ -27,9 +27,9 @@ export default function Text({
 }: TextProps) {
   const classes = [
     sizeMap[size],
-    "leading-relaxed",
-  muted ? "text-[var(--color-text-muted)]" : "text-[var(--color-text-soft)]",
-      className,
+    "leading-relaxed tracking-[-0.01em]",
+    muted ? "text-[var(--color-text-muted)]" : "text-[var(--color-text-soft)]",
+    className,
   ].join(" ");
 
   return React.createElement(Tag, { className: classes }, children);
