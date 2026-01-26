@@ -12,24 +12,47 @@ export default function HeroVideo({ shouldPlay = true }: HeroVideoProps) {
 
   useEffect(() => {
     const media = window.matchMedia("(max-width: 768px)");
-
     const update = () => setIsMobile(media.matches);
+
     update();
 
-    media.addEventListener("change", update);
-    return () => media.removeEventListener("change", update);
+    // Safari fallback
+    if (media.addEventListener) {
+      media.addEventListener("change", update);
+      return () => media.removeEventListener("change", update);
+    } else {
+      media.addListener(update);
+      return () => media.removeListener(update);
+    }
   }, []);
 
   useEffect(() => {
-    if (!videoRef.current) return;
+    const video = videoRef.current;
+    if (!video) return;
+
+    const tryPlay = () => {
+      if (!shouldPlay) return;
+      // не всегда нужно сбрасывать, но если хочешь "с начала" — оставь
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    };
 
     if (shouldPlay) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => {});
+      if (video.readyState >= 2) {
+        tryPlay();
+      } else {
+        video.addEventListener("loadedmetadata", tryPlay, { once: true });
+        video.addEventListener("canplay", tryPlay, { once: true });
+      }
     } else {
-      videoRef.current.pause();
+      video.pause();
     }
-  }, [shouldPlay, isMobile]);
+
+    return () => {
+      video.removeEventListener("loadedmetadata", tryPlay);
+      video.removeEventListener("canplay", tryPlay);
+    };
+  }, [shouldPlay]);
 
   return (
     <div className="absolute inset-0 z-0">
@@ -37,16 +60,16 @@ export default function HeroVideo({ shouldPlay = true }: HeroVideoProps) {
         ref={videoRef}
         key={isMobile ? "mobile" : "desktop"}
         className="h-full w-full object-cover"
+        autoPlay
         muted
         loop
         playsInline
         preload="metadata"
       >
-        {isMobile ? (
-          <source src="/assets/video/hero-mobile.mp4" type="video/mp4" />
-        ) : (
-          <source src="/assets/video/hero.mp4" type="video/mp4" />
-        )}
+        <source
+          src={isMobile ? "/assets/video/hero-mobile.mp4" : "/assets/video/hero.mp4"}
+          type="video/mp4"
+        />
       </video>
     </div>
   );
