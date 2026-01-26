@@ -38,7 +38,7 @@ export default function NewsSlider() {
             type="button"
             onClick={() => scrollBy(-360)}
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-surface)] text-[var(--color-text)] transition-all duration-300 hover:border-[color:var(--color-border-strong)] hover:bg-[color:var(--color-surface-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--section-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-bg)]"
-            aria-label="Oldingi xabarlar"
+            aria-label="Oldingi yangiliklar"
           >
             ←
           </button>
@@ -47,7 +47,7 @@ export default function NewsSlider() {
             type="button"
             onClick={() => scrollBy(360)}
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-surface)] text-[var(--color-text)] transition-all duration-300 hover:border-[color:var(--color-border-strong)] hover:bg-[color:var(--color-surface-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--section-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-bg)]"
-            aria-label="Keyingi xabarlar"
+            aria-label="Keyingi yangiliklar"
           >
             →
           </button>
@@ -65,11 +65,11 @@ export default function NewsSlider() {
           onKeyDown={handleKey}
           role="region"
           aria-label="Xabarlar karuseli"
-          className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 pr-6 focus:outline-none scroll-px-6"
+          className="flex snap-x snap-mandatory items-stretch gap-6 overflow-x-auto pb-4 pr-6 focus:outline-none scroll-px-6"
           style={{
             scrollbarWidth: "thin",
             scrollbarColor:
-              "rgba(37,99,235,0.6) rgba(15,23,42,0.7)",
+              "var(--section-accent) var(--color-bg-muted)",
           }}
         >
           {news.map((item) => (

@@ -1,3 +1,4 @@
+// app/components/about/AboutCard.tsx
 import React from "react";
 import { motion } from "framer-motion";
 import Heading from "../core/Heading";
@@ -11,25 +12,26 @@ type AboutCardProps = {
   icon: IconType;
 };
 
-const iconClassName = "h-6 w-6 text-white";
+// Use contrast variable so icons stay readable in both light/dark themes.
+const iconClassName = "h-6 w-6 text-[var(--color-primary-contrast)]";
 
 function Icon({ type }: { type: IconType }) {
   if (type === "spark") {
     return (
-      <svg viewBox="0 0 24 24" className={iconClassName}>
+      <svg viewBox="0 0 24 24" className={iconClassName} aria-hidden="true">
         <path d="M12 2l1.9 5.6L20 9.5l-6.1 1.9L12 17l-1.9-5.6L4 9.5l6.1-1.9L12 2z" />
       </svg>
     );
   }
   if (type === "grid") {
     return (
-      <svg viewBox="0 0 24 24" className={iconClassName}>
+      <svg viewBox="0 0 24 24" className={iconClassName} aria-hidden="true">
         <path d="M3 3h7v7H3V3zm11 0h7v7h-7V3zM3 14h7v7H3v-7zm11 0h7v7h-7v-7z" />
       </svg>
     );
   }
   return (
-    <svg viewBox="0 0 24 24" className={iconClassName}>
+    <svg viewBox="0 0 24 24" className={iconClassName} aria-hidden="true">
       <path d="M12 2l8 4v6c0 5-3.8 9.4-8 10-4.2-.6-8-5-8-10V6l8-4z" />
     </svg>
   );
@@ -40,7 +42,7 @@ export default function AboutCard({ title, text, icon }: AboutCardProps) {
     <motion.div
       whileHover={{ y: -6 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="group relative overflow-hidden rounded-2xl border border-[color:var(--color-border)]/80 bg-[color:var(--color-surface)] p-6 ring-soft backdrop-blur-2xl"
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[color:var(--color-border)]/80 bg-[color:var(--color-surface)] p-6 ring-soft shadow-[var(--shadow-card)] backdrop-blur-2xl"
     >
       <div className="pointer-events-none absolute -inset-24 bg-[radial-gradient(70%_70%_at_50%_0%,var(--section-accent-soft),transparent_72%)] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
 
@@ -52,7 +54,9 @@ export default function AboutCard({ title, text, icon }: AboutCardProps) {
         {title}
       </Heading>
 
-      <Text muted>{text}</Text>
+      <Text muted className="mt-auto">
+        {text}
+      </Text>
     </motion.div>
   );
 }

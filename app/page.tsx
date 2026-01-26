@@ -13,7 +13,7 @@ import Footer from "./components/footer/Footer";
 
 export default function HomePage() {
   return (
-    <main id="top" className="relative overflow-hidden">
+    <main id="top" className="relative overflow-hidden bg-noise">
       {/* Navigation */}
       <Navbar items={navigation} />
 

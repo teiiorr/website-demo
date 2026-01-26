@@ -1,25 +1,53 @@
-// app/components/hero/HeroVideo.tsx
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-export default function HeroVideo() {
+type HeroVideoProps = {
+  shouldPlay?: boolean;
+};
+
+export default function HeroVideo({ shouldPlay = true }: HeroVideoProps) {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 768px)");
+
+    const update = () => setIsMobile(media.matches);
+    update();
+
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (!videoRef.current) return;
+
+    if (shouldPlay) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(() => {});
+    } else {
+      videoRef.current.pause();
+    }
+  }, [shouldPlay, isMobile]);
+
   return (
     <div className="absolute inset-0 z-0">
       <video
-        className="h-full w-full object-cover opacity-90"
-        autoPlay
+        ref={videoRef}
+        key={isMobile ? "mobile" : "desktop"}
+        className="h-full w-full object-cover"
         muted
         loop
         playsInline
         preload="metadata"
-        poster="/assets/images/sample-3.jpg"
       >
-        <source src="/assets/videos/hero.mp4" type="video/mp4" />
+        {isMobile ? (
+          <source src="/assets/video/hero-mobile.mp4" type="video/mp4" />
+        ) : (
+          <source src="/assets/video/hero.mp4" type="video/mp4" />
+        )}
       </video>
-
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(30,64,175,0.3),transparent_62%)]" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[color:rgba(8,13,28,0.35)] via-[color:rgba(8,13,28,0.62)] to-[color:rgba(6,10,20,0.96)]" />
     </div>
   );
 }

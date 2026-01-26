@@ -10,15 +10,15 @@ import AboutCard from "./AboutCard";
 
 export default function AboutSection() {
   return (
-    <Section id="about" className="bg-noise section-about">
+    <Section id="about" className="section-about">
       <Container>
         <div className="mb-12 max-w-2xl">
           <Heading as="h2" className="mb-4" accent>
             Biz haqimizda
           </Heading>
           <Text muted>
-            Uyushma bolalar ijodini qo‘llab-quvvatlaydi: adabiyot, san’at,
-            media va kreativ yo‘nalishlarda yangi imkoniyatlar yaratadi.
+            Uyushma bolalar ijodini qo‘llab-quvvatlaydi: adabiyot, san’at, media va
+            kreativ yo‘nalishlarda yangi imkoniyatlar yaratadi.
           </Text>
         </div>
 
@@ -38,7 +38,7 @@ export default function AboutSection() {
               },
             },
           }}
-          className="grid gap-6 md:grid-cols-3"
+          className="grid auto-rows-fr gap-6 md:grid-cols-3"
         >
           <AboutCard
             title="Missiya"

@@ -9,44 +9,38 @@ export default function PartnersCarousel() {
   const track = useMemo(() => [...partners, ...partners], []);
 
   return (
-    <section className="group relative overflow-hidden rounded-[28px] border border-[color:var(--color-border)]/60 bg-[color:var(--color-surface)] shadow-soft">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_120%_at_0%_0%,var(--section-accent-soft),transparent_55%)]" />
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[color:var(--color-surface)] via-[color:var(--color-surface)]/70 to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[color:var(--color-surface)] via-[color:var(--color-surface)]/70 to-transparent" />
-
-      <div className="relative py-10">
-        {/* viewport */}
-        <div className="overflow-hidden px-4 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-          {/* moving track */}
-          <div className="flex w-max animate-[marquee_28s_linear_infinite] group-hover:[animation-play-state:paused]">
-            {/* first row */}
+    <section className="relative overflow-hidden rounded-3xl border border-[color:rgba(0,0,0,0.08)] bg-[#F5EEDC]">
+      <div className="py-10">
+        <div className="overflow-hidden px-4">
+          <div className="flex w-max animate-[marquee_32s_linear_infinite]">
+            {/* first pass */}
             <div className="flex items-center">
               {track.map((p, idx) => (
                 <div key={`a-${p.id}-${idx}`} className="shrink-0">
-                  <div className="relative h-32 w-[22rem] sm:h-36 sm:w-[26rem] lg:h-40 lg:w-[30rem]">
+                  <div className="relative h-28 w-[22rem] sm:h-32 sm:w-[26rem] lg:h-36 lg:w-[30rem]">
                     <Image
                       src={p.logo}
-                      alt={`${p.name} logotipi`}
+                      alt={`${p.name} logo`}
                       fill
                       sizes="(max-width: 640px) 352px, (max-width: 1024px) 416px, 480px"
-                      className="object-contain opacity-95"
+                      className="object-contain"
                     />
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* duplicate row for seamless loop */}
+            {/* duplicate pass for seamless loop */}
             <div className="flex items-center" aria-hidden="true">
               {track.map((p, idx) => (
                 <div key={`b-${p.id}-${idx}`} className="shrink-0">
-                  <div className="relative h-32 w-[22rem] sm:h-36 sm:w-[26rem] lg:h-40 lg:w-[30rem]">
+                  <div className="relative h-28 w-[22rem] sm:h-32 sm:w-[26rem] lg:h-36 lg:w-[30rem]">
                     <Image
                       src={p.logo}
                       alt=""
                       fill
                       sizes="(max-width: 640px) 352px, (max-width: 1024px) 416px, 480px"
-                      className="object-contain opacity-95"
+                      className="object-contain"
                     />
                   </div>
                 </div>

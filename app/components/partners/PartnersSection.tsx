@@ -9,7 +9,7 @@ import PartnersCarousel from "./PartnersCarousel";
 
 export default function PartnersSection() {
   return (
-    <Section id="partners" className="bg-noise section-partners">
+    <Section id="partners" className="section-partners">
       <Container>
         <div className="mb-12 max-w-2xl">
           <Heading as="h2" className="mb-4" accent>

@@ -14,7 +14,7 @@ export const news: NewsItem[] = [
   {
     id: "n-001",
     slug: "ijodkorlar-forumi-2026",
-    title: "Ijodkorlar forumi 2026: yangi bosqich",
+    title: "Ijodkorlar forumi",
     date: "2026-03-02",
     excerpt:
       "Uyushma tomonidan tashkil etilgan forumda mentorlar, maktablar va media hamkorlar ishtirok etdi.",
@@ -28,7 +28,7 @@ export const news: NewsItem[] = [
   {
     id: "n-002",
     slug: "kitobxonlik-mukofoti",
-    title: "Kitobxonlik mukofoti va yil yakuni",
+    title: "Kitobxonlik",
     date: "2026-02-10",
     excerpt:
       "Eng faol o‘quvchilar taqdirlandi, yangi o‘quv resurslari va tavsiyalar e’lon qilindi.",
@@ -42,10 +42,10 @@ export const news: NewsItem[] = [
   {
     id: "n-003",
     slug: "media-laboratoriya-starti",
-    title: "Media laboratoriya starti: kreativ ko‘nikmalar",
+    title: "Media laboratoriya",
     date: "2026-01-18",
     excerpt:
-      "Foto, video va storytelling bo‘yicha amaliy treninglar yoshlar uchun ochildi.",
+      "Laboratoriya dasturida media savodxonligi, montaj va kontent",
     coverImage: "/assets/images/sample-3.jpg",
     content: [
       "Laboratoriya dasturida media savodxonligi, montaj va kontent rejalash bo‘yicha bloklar mavjud.",

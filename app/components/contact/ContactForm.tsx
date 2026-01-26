@@ -1,3 +1,4 @@
+// app/components/contact/ContactForm.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -50,7 +51,7 @@ export default function ContactForm() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className="group relative overflow-hidden rounded-2xl border border-[color:var(--color-border)]/80 bg-[color:var(--color-surface)] p-7 ring-soft backdrop-blur-2xl"
+      className="group relative overflow-hidden rounded-2xl border border-[color:var(--color-border)]/80 bg-[color:var(--color-surface)] p-7 ring-soft shadow-[var(--shadow-card)] backdrop-blur-2xl"
     >
       <div className="pointer-events-none absolute -inset-28 bg-[radial-gradient(70%_70%_at_50%_0%,var(--section-accent-soft),transparent_76%)] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
 
@@ -71,6 +72,10 @@ export default function ContactForm() {
             onChange={onChange("name")}
             placeholder="Ismingiz"
             className={inputClasses}
+            type="text"
+            autoComplete="name"
+            required
+            aria-invalid={form.name.trim().length > 0 && form.name.trim().length < 2}
           />
         </label>
 
@@ -81,8 +86,14 @@ export default function ContactForm() {
           <input
             value={form.contact}
             onChange={onChange("contact")}
-            placeholder="998 90 123 45 67 / email@example.com"
+            placeholder="+998..."
             className={inputClasses}
+            type="text"
+            autoComplete="tel"
+            required
+            aria-invalid={
+              form.contact.trim().length > 0 && form.contact.trim().length < 5
+            }
           />
         </label>
 
@@ -96,6 +107,10 @@ export default function ContactForm() {
             placeholder="Qisqacha yozing…"
             rows={5}
             className={`${inputClasses} h-auto resize-none py-3`}
+            required
+            aria-invalid={
+              form.message.trim().length > 0 && form.message.trim().length < 10
+            }
           />
         </label>
 
@@ -113,7 +128,7 @@ export default function ContactForm() {
         </div>
 
         {sent && (
-          <div className="mt-2 rounded-xl border border-[color:rgba(56,189,248,0.35)] bg-[color:rgba(14,165,233,0.12)] px-4 py-3 text-sm font-medium text-[var(--color-text-soft)]">
+          <div className="mt-2 rounded-xl border border-[color:var(--section-accent)]/40 bg-[color:var(--section-accent-soft)] px-4 py-3 text-sm font-medium text-[var(--color-text)]">
             Murojaat qabul qilindi (demo). Tez orada bog‘lanamiz.
           </div>
         )}

@@ -26,7 +26,7 @@ export default function NewsDetailPage({ params }: PageProps) {
         <Container>
           <div className="mb-6">
             <Button href="/#news" variant="secondary">
-              ← Xabarlarga qaytish
+              ← Yangiliklarga qaytish
             </Button>
           </div>
 

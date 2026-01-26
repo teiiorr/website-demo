@@ -14,9 +14,9 @@ type ButtonProps = {
 
 const variantMap: Record<ButtonVariant, string> = {
   primary:
-    "bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-primary-strong)] to-[var(--color-accent)] text-[var(--color-primary-contrast)] shadow-[0_18px_45px_rgba(30,64,175,0.35)] hover:from-[var(--color-primary-strong)] hover:via-[var(--color-primary)] hover:to-[var(--color-accent-strong)]",
+    "bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-primary-strong)] to-[var(--color-accent)] text-[var(--color-primary-contrast)] shadow-[0_18px_45px_rgba(37,99,235,0.25)] hover:from-[var(--color-primary-strong)] hover:via-[var(--color-primary)] hover:to-[var(--color-accent-strong)]",
   secondary:
-    "border border-[color:var(--color-border)] bg-[color:var(--color-surface-elevated)] text-[var(--color-text)] shadow-[0_16px_35px_rgba(9,16,34,0.45)] hover:border-[color:var(--color-border-strong)] hover:bg-[color:var(--color-surface-strong)]",
+    "border border-[color:var(--color-border)] bg-[color:var(--color-surface-elevated)] text-[var(--color-text)] shadow-[0_16px_35px_rgba(15,23,42,0.2)] hover:border-[color:var(--color-border-strong)] hover:bg-[color:var(--color-surface-strong)]",
   ghost:
     "border border-transparent bg-transparent text-[var(--color-text-soft)] hover:border-[color:rgba(148,163,184,0.18)] hover:bg-[color:rgba(59,130,246,0.12)] hover:text-[var(--color-text)]",
 };
@@ -35,8 +35,9 @@ export default function Button({
 
   return (
     <motion.div
-      whileHover={{ scale: 1.03, y: -1 }}
+      whileHover={{ scale: 1.02, y: -1 }}
       whileTap={{ scale: 0.97 }}
+      transition={{ type: "spring", stiffness: 260, damping: 18 }}
       className="inline-block"
     >
       {href ? (
@@ -44,7 +45,7 @@ export default function Button({
           {children}
         </a>
       ) : (
-        <button onClick={onClick} className={classes}>
+        <button type="button" onClick={onClick} className={classes}>
           {children}
         </button>
       )}

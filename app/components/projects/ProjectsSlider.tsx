@@ -1,3 +1,4 @@
+// app/components/projects/ProjectsSlider.tsx
 "use client";
 
 import React, { useMemo, useRef, useState } from "react";
@@ -38,8 +39,8 @@ export default function ProjectsSlider() {
               className={[
                 "rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--section-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-bg)]",
                 isActive
-                  ? "border-[color:var(--section-accent)] bg-[color:var(--section-accent-soft)] text-[var(--color-primary-contrast)]"
-                  : "border-[color:var(--color-border)] bg-transparent text-[var(--color-text-muted)] hover:border-[color:var(--color-border-strong)] hover:bg-[color:rgba(15,23,42,0.6)] hover:text-[var(--color-text)]",
+                  ? "border-[color:var(--section-accent)] bg-[color:var(--section-accent-soft)] text-[var(--color-text)]"
+                  : "border-[color:var(--color-border)] bg-transparent text-[var(--color-text-muted)] hover:border-[color:var(--color-border-strong)] hover:bg-[color:rgba(59,130,246,0.12)] hover:text-[var(--color-text)]",
               ].join(" ")}
             >
               {filter.label}
@@ -52,12 +53,12 @@ export default function ProjectsSlider() {
         initial={{ opacity: 0, y: 18 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3"
+        className="grid auto-rows-fr gap-6 sm:grid-cols-2 xl:grid-cols-3"
       >
         {items.length ? (
           items.map((p) => <ProjectCard key={p.id} project={p} />)
         ) : (
-          <div className="rounded-2xl border border-dashed border-[color:var(--color-border)]/70 bg-[color:rgba(15,23,42,0.5)] p-6 text-sm text-[var(--color-text-muted)]">
+          <div className="rounded-2xl border border-dashed border-[color:var(--color-border)]/70 bg-[color:var(--color-surface)] p-6 text-sm text-[var(--color-text-muted)]">
             Tanlangan holat bo‘yicha loyiha topilmadi.
           </div>
         )}

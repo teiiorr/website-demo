@@ -9,12 +9,12 @@ import NewsSlider from "../news/NewsSlider";
 
 export default function NewsSection() {
   return (
-    <Section id="news" className="bg-noise section-news">
+    <Section id="news" className="section-news">
       <Container>
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <Heading as="h2" className="mb-4" accent>
-              Xabarlar
+              Yangiliklar
             </Heading>
             <Text muted>
               Uyushma yangiliklari, muhim e’lonlar va loyiha natijalari bo‘yicha

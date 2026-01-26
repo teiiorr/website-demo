@@ -9,38 +9,41 @@ import ContactForm from "./ContactForm";
 
 export default function ContactSection() {
   return (
-    <Section id="contact" className="bg-noise section-contact">
+    <Section id="contact" className="section-contact">
       <Container>
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
           <div className="max-w-xl">
             <Heading as="h2" className="mb-4" accent>
               Bog‘lanish
             </Heading>
+
             <Text muted className="mb-8">
               Taklif, g‘oya yoki hamkorlik bo‘yicha murojaat qoldiring — biz tez
               orada javob beramiz.
             </Text>
 
-            <div className="rounded-2xl border border-[color:var(--color-border)]/80 bg-[color:var(--color-surface)] p-6 ring-soft backdrop-blur-2xl">
+            <div className="rounded-2xl border border-[color:var(--color-border)]/80 bg-[color:var(--color-surface)] p-6 ring-soft shadow-[var(--shadow-card)] backdrop-blur-2xl">
               <div className="grid gap-4 text-sm text-[var(--color-text-soft)]">
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="text-[var(--color-text-muted)]">Telefon</span>
-                  <span>+998 (88) 464-96-69</span>
+                  <span className="font-medium">+998 (88) 464-96-69</span>
                 </div>
 
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="text-[var(--color-text-muted)]">Email</span>
-                  <span>info@teiiordev.uz</span>
+                  <span className="font-medium">info@teiiordev.uz</span>
                 </div>
 
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="text-[var(--color-text-muted)]">Manzil</span>
-                  <span>Toshkent shahri (Ziyo ko'chasi, 2A)</span>
+                  <span className="font-medium">
+                    Toshkent shahri (Ziyo ko&apos;chasi, 2A)
+                  </span>
                 </div>
 
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="text-[var(--color-text-muted)]">Ish vaqti</span>
-                  <span>Dush–Shanba, 10:00–19:00</span>
+                  <span className="font-medium">Dush–Shanba, 10:00–19:00</span>
                 </div>
               </div>
             </div>

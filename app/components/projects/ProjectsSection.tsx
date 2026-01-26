@@ -9,7 +9,7 @@ import ProjectsSlider from "./ProjectsSlider";
 
 export default function ProjectsSection() {
   return (
-    <Section id="projects" className="bg-noise section-projects">
+    <Section id="projects" className="section-projects">
       <Container>
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">

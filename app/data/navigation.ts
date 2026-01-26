@@ -15,7 +15,7 @@ export const navigation: NavItem[] = [
     href: "#about",
   },
   {
-    label: "Xabarlar",
+    label: "Yangiliklar",
     href: "#news",
   },
   {

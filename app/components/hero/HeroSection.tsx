@@ -1,59 +1,49 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Container from "../core/Container";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Section from "../core/Section";
-import Text from "../core/Text";
-import Button from "../core/Button";
 import HeroVideo from "./HeroVideo";
-import HeroOverlay from "./HeroOverlay";
 import TypingHeading from "../core/TypingHeading";
 
 export default function HeroSection() {
+  const [introDone, setIntroDone] = useState(false);
+
   return (
-    // IMPORTANT: relative + overflow-hidden so the absolute video stays inside the hero
-    <Section className="relative min-h-[100svh] overflow-hidden pt-28 pb-20">
-      {/* Background video */}
-      <HeroVideo />
+    <Section className="relative min-h-[100svh] overflow-hidden pt-24 sm:pt-28">
+      {/* Video starts ONLY after intro */}
+      <HeroVideo shouldPlay={introDone} />
 
-      {/* Overlay */}
-      <HeroOverlay />
+      {/* INTRO OVERLAY (disappears полностью) */}
+      <AnimatePresence>
+        {!introDone && (
+          <motion.div
+            className="absolute inset-0 z-50 grid place-items-center bg-[color:var(--color-bg)]"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.55, ease: "easeInOut" }}
+          >
+            <div className="w-full max-w-5xl px-6">
+              <TypingHeading
+                text={`BOLALAR IJODKORLARI\nUYUSHMASI`}
+                speed={0.045}
+                className="text-4xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-center"
+                showCaret
+                onDone={() => setIntroDone(true)}
+              />
 
-      {/* Content */}
-      <Container className="relative z-10 flex min-h-[70svh] items-end">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-          // 👇 небольшой lift на десктопе, чтобы карточка «дышала»
-          className="max-w-3xl rounded-3xl border border-[color:var(--color-border)]/70 bg-[color:var(--color-surface-strong)]/85 p-6 shadow-soft backdrop-blur-2xl sm:p-8 lg:p-10 lg:mb-12"
-        >
-          <div className="mb-6 sm:mb-8">
-            <TypingHeading
-              text="Bolalar ijodkorlari uyushmasi"
-              speed={0.05}
-              className="mb-3"
-              showCaret
-              mobileBreakAt="uyushmasi"
-            />
-
-            <Text size="lg" muted className="max-w-2xl">
-              Bolalar Ijodkorlari Uyushmasi bolalar isteʼdodini qo‘llab-quvvatlaydi,
-              yangi loyihalar yaratadi va jamiyat uchun foydali tashabbuslarni
-              rivojlantiradi.
-            </Text>
-          </div>
-
-          <div className="flex flex-wrap gap-4">
-            <Button href="#projects" variant="primary">
-              Loyihalarni ko‘rish
-            </Button>
-            <Button href="#about" variant="secondary">
-              Biz haqimizda
-            </Button>
-          </div>
-        </motion.div>
-      </Container>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.45, duration: 0.55 }}
+                className="mt-6 text-center text-sm sm:text-base text-[color:var(--color-text-muted)]"
+              >
+                bolalar isteʼdodini qo‘llab-quvvatlaydigan platforma
+              </motion.p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Section>
   );
 }
