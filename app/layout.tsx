@@ -1,43 +1,33 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "./components/theme/ThemeProvider";
 
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
+import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { buildMetadata, jsonLdPlaceholder } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Bolalar Ijodkorlari Uyushmasi",
-  description:
-    "Bolalar ijodini qo‘llab-quvvatlaydigan platforma: loyihalar, yangiliklar, hamkorlik va ishtirok imkoniyatlari.",
-  metadataBase: new URL("https://example.uz"),
-  openGraph: {
-    title: "Bolalar Ijodkorlari Uyushmasi",
-    description:
-      "Bolalar ijodi, loyihalar va yangiliklar — zamonaviy, qulay va chiroyli taqdimot.",
-    type: "website",
-    locale: "uz_UZ",
-  },
-  icons: {
-    icon: "/favicon.ico",
-  },
-};
+export const metadata: Metadata = buildMetadata(
+  "Creative Union | Youth Innovation Platform",
+  "A premium youth innovation platform connecting programs, projects, partners, and impact storytelling."
+);
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = jsonLdPlaceholder("/");
+
   return (
-    <html lang="uz" className="scroll-smooth">
-      <body
-        className={`${jakarta.variable} min-h-dvh bg-transparent text-[var(--color-text)] antialiased`}
-      >
-        <ThemeProvider>{children}</ThemeProvider>
+    <html lang="en">
+      <body>
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </body>
     </html>
   );

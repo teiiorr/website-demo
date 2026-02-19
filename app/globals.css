@@ -1,219 +1,52 @@
 /* app/globals.css */
 @import "tailwindcss";
-
-/* =========================
-   Base
-========================= */
-:root {
-  color-scheme: dark;
-
-  --color-bg: #0b0f1f;
-  --color-bg-muted: #0b0f1f;
-
-  --color-surface: rgba(17, 24, 39, 0.7);
-  --color-surface-strong: rgba(15, 23, 42, 0.92);
-  --color-surface-elevated: rgba(30, 41, 59, 0.7);
-
-  --color-border: rgba(148, 163, 184, 0.2);
-  --color-border-strong: rgba(148, 163, 184, 0.4);
-
-  --color-text: #e2e8f0;
-  --color-text-muted: #94a3b8;
-  --color-text-soft: #f1f5f9;
-
-  --color-primary: #3b82f6;
-  --color-primary-strong: #2563eb;
-  --color-primary-contrast: #f8fafc;
-
-  --color-accent: #38bdf8;
-  --color-accent-strong: #0ea5e9;
-
-  --shadow-soft: 0 30px 80px rgba(8, 12, 24, 0.45);
-  --shadow-card: 0 20px 60px rgba(8, 12, 24, 0.45);
-
-  --bg-glow-1: rgba(56, 189, 248, 0.12);
-  --bg-glow-2: rgba(59, 130, 246, 0.1);
-
-  --hero-overlay-top: rgba(10, 14, 28, 0.4);
-  --hero-overlay-mid: rgba(10, 14, 28, 0.55);
-  --hero-overlay-bottom: rgba(7, 10, 20, 0.85);
-
-  /* default section accent */
-  --section-accent: var(--color-accent);
-  --section-accent-strong: var(--color-accent-strong);
-  --section-accent-soft: rgba(56, 189, 248, 0.2);
-}
-
-/* =========================
-   Light theme
-========================= */
-html[data-theme="light"] {
-  color-scheme: light;
-
-  --color-bg: #f6f1e7;
-  --color-bg-muted: #f6f1e7;
-
-  --color-surface: rgba(255, 255, 255, 0.78);
-  --color-surface-strong: rgba(255, 255, 255, 0.92);
-  --color-surface-elevated: rgba(255, 255, 255, 0.96);
-
-  --color-border: rgba(148, 163, 184, 0.3);
-  --color-border-strong: rgba(100, 116, 139, 0.4);
-
-  --color-text: #1d2433;
-  --color-text-muted: #5c6474;
-  --color-text-soft: #141a24;
-
-  --color-primary: #2563eb;
-  --color-primary-strong: #1d4ed8;
-  --color-primary-contrast: #f8fafc;
-
-  --color-accent: #38bdf8;
-  --color-accent-strong: #0ea5e9;
-
-  --shadow-soft: 0 30px 80px rgba(15, 23, 42, 0.1);
-  --shadow-card: 0 20px 60px rgba(15, 23, 42, 0.12);
-
-  --bg-glow-1: rgba(59, 130, 246, 0.12);
-  --bg-glow-2: rgba(14, 165, 233, 0.08);
-
-  --hero-overlay-top: rgba(248, 250, 252, 0.2);
-  --hero-overlay-mid: rgba(241, 245, 249, 0.3);
-  --hero-overlay-bottom: rgba(226, 232, 240, 0.55);
-}
+@import "../styles/tokens.css";
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
 }
 
 body {
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
-  letter-spacing: -0.01em;
-  line-height: 1.6;
-  text-rendering: geometricPrecision;
+  background:
+    radial-gradient(
+      circle at top right,
+      color-mix(in oklab, var(--brand) 20%, transparent),
+      transparent 55%
+    ),
+    var(--bg);
+  color: var(--text);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Better media defaults */
-img,
-video {
-  max-width: 100%;
-  height: auto;
+/* Make default borders match theme tokens */
+* {
+  border-color: var(--border);
 }
 
-/* =========================
-   Premium background texture
-========================= */
-@layer utilities {
-  .bg-noise {
-    position: relative;
-    isolation: isolate;
-  }
-
-  .bg-noise::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.06;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
-    background-size: 180px 180px;
-  }
-
-  .glass {
-    background: var(--color-surface);
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(22px);
-    border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-card);
-  }
-
-  .ring-soft {
-    box-shadow:
-      inset 0 0 0 1px rgba(226, 232, 240, 0.12),
-      0 0 0 1px rgba(59, 130, 246, 0.1);
-  }
-
-  .shadow-soft {
-    box-shadow:
-      var(--shadow-soft),
-      inset 0 0 0 1px rgba(148, 163, 184, 0.08);
-  }
-
-  .mask-fade-bottom {
-    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-  }
-
-  .heading-accent {
-    background-image: linear-gradient(
-      90deg,
-      var(--color-primary-contrast),
-      var(--section-accent-strong),
-      var(--section-accent)
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-
-  html[data-theme="light"] .heading-accent {
-    background-image: none;
-    color: var(--color-text);
-    -webkit-text-fill-color: var(--color-text);
-  }
-
- .navbar-dark {
-  color-scheme: dark;
-
-  --color-surface: rgba(12, 18, 34, 0.92);
-  --color-surface-strong: rgba(12, 18, 34, 0.96);
-  --color-surface-elevated: rgba(18, 26, 48, 0.9);
-
-  --color-border: rgba(148, 163, 184, 0.25);
-  --color-border-strong: rgba(148, 163, 184, 0.45);
-
-  --color-text: #e2e8f0;
-  --color-text-muted: #94a3b8;
-  --color-text-soft: #f1f5f9;
-
-  --color-primary-contrast: #f8fafc;
+a {
+  color: inherit;
 }
 
-  /* Section accents */
-  .section-news {
-    --section-accent: #60a5fa;
-    --section-accent-strong: #3b82f6;
-    --section-accent-soft: rgba(96, 165, 250, 0.2);
-  }
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
 
-  .section-projects {
-    --section-accent: #2dd4bf;
-    --section-accent-strong: #14b8a6;
-    --section-accent-soft: rgba(45, 212, 191, 0.2);
-  }
+/* Layout helper */
+.container-shell {
+  width: min(1120px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
 
-  .section-partners {
-    --section-accent: #94a3b8;
-    --section-accent-strong: #64748b;
-    --section-accent-soft: rgba(148, 163, 184, 0.2);
-  }
-
-  .section-about {
-    --section-accent: #60a5fa;
-    --section-accent-strong: #38bdf8;
-    --section-accent-soft: rgba(56, 189, 248, 0.18);
-  }
-
-  .section-contact {
-    --section-accent: #a78bfa;
-    --section-accent-strong: #8b5cf6;
-    --section-accent-soft: rgba(167, 139, 250, 0.18);
-  }
+/* Glass surface helper */
+.glass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: var(--bg-elevated);
+  border: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
 }

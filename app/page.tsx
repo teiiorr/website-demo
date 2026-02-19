@@ -1,42 +1,30 @@
 // app/page.tsx
-import Navbar from "./components/navigation/Navbar";
-import { navigation } from "./data/navigation";
+import { Hero } from "@/components/blocks/hero";
+import { NewsGrid } from "@/components/blocks/news-grid";
+import { ProjectsList } from "@/components/blocks/projects-list";
+import { PartnersGrid } from "@/components/blocks/partners-grid";
+import { ContactBlock } from "@/components/blocks/contact-block";
 
-// Sections (hozircha skeleton, keyin bittalab yozamiz)
-import HeroSection from "./components/hero/HeroSection";
-import AboutSection from "./components/about/AboutSection";
-import NewsSection from "./components/news/NewsSection";
-import ProjectsSection from "./components/projects/ProjectsSection";
-import PartnersSection from "./components/partners/PartnersSection";
-import ContactSection from "./components/contact/ContactSection";
-import Footer from "./components/footer/Footer";
+import {
+  getNews,
+  getPartners,
+  getProjects,
+} from "@/lib/content/source";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [news, projects, partners] = await Promise.all([
+    getNews(),
+    getProjects(),
+    getPartners(),
+  ]);
+
   return (
-    <main id="top" className="relative overflow-hidden bg-noise">
-      {/* Navigation */}
-      <Navbar items={navigation} />
-
-      {/* HERO: video + 3D + CTA */}
-      <HeroSection />
-
-      {/* ABOUT */}
-      <AboutSection />
-
-      {/* NEWS */}
-      <NewsSection />
-
-      {/* PROJECTS */}
-      <ProjectsSection />
-
-      {/* PARTNERS */}
-      <PartnersSection />
-
-      {/* CONTACT */}
-      <ContactSection />
-
-      {/* FOOTER */}
-      <Footer />
+    <main>
+      <Hero />
+      <NewsGrid items={news} compact />
+      <ProjectsList items={projects} />
+      <PartnersGrid items={partners} />
+      <ContactBlock />
     </main>
   );
 }

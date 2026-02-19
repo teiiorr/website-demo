@@ -1,63 +1,33 @@
-// app/news/[slug]/page.tsx
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import Container from "../../../components/core/Container";
-import Section from "../../../components/core/Section";
-import Heading from "../../../components/core/Heading";
-import Text from "../../../components/core/Text";
-import Button from "../../../components/core/Button";
-import { news } from "../../../data/news";
+import { getNews, getNewsBySlug } from "@/lib/content/source";
+import { buildMetadata } from "@/lib/seo/metadata";
 
+export async function generateStaticParams() {
+  const news = await getNews();
+  return news.map((item) => ({ slug: item.slug }));
+}
 
-type PageProps = {
-  params: { slug: string };
-};
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const article = await getNewsBySlug(slug);
+  if (!article) return buildMetadata("Article not found", "", "/news");
+  return buildMetadata(article.title, article.excerpt, `/news/${article.slug}`);
+}
 
-export default function NewsDetailPage({ params }: PageProps) {
-  const item = news.find((entry) => entry.slug === params.slug);
-
-  if (!item) {
-    notFound();
-  }
+export default async function NewsArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const article = await getNewsBySlug(slug);
+  if (!article) notFound();
 
   return (
-    <main className="relative overflow-hidden">
-      <Section className="bg-noise section-news pt-28">
-        <Container>
-          <div className="mb-6">
-            <Button href="/#news" variant="secondary">
-              ← Yangiliklarga qaytish
-            </Button>
-          </div>
-
-          <div className="max-w-3xl">
-            <Heading as="h1" accent className="mb-4">
-              {item.title}
-            </Heading>
-
-            <Text muted className="mb-6">
-              {item.date}
-            </Text>
-
-            <div className="relative mb-8 h-64 w-full overflow-hidden rounded-2xl border border-[color:var(--color-border)]/70">
-              <Image
-                src={item.coverImage}
-                alt={item.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 720px"
-                className="object-cover"
-                priority
-              />
-            </div>
-
-            <div className="news-content grid gap-4">
-              {item.content.map((paragraph) => (
-                <Text key={paragraph}>{paragraph}</Text>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </Section>
+    <main className="container-shell py-14">
+      <article className="mx-auto max-w-3xl space-y-6">
+        <p className="text-xs uppercase tracking-[0.2em] text-[var(--text-muted)]">{article.category} · {article.readTime}</p>
+        <h1 className="text-4xl font-semibold tracking-tight">{article.title}</h1>
+        <Image src={article.cover} alt="" width={1200} height={700} className="rounded-2xl border" />
+        <p className="text-lg leading-8 text-[var(--text-muted)]">{article.body}</p>
+      </article>
     </main>
   );
 }
